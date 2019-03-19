@@ -39,7 +39,7 @@ class HomeController extends Controller {
                     session([$pagina->nombre => $pagina->nombre]);
                 }
             }
-            return view('home')->with('location', 'inicio');
+            return view('home')->with('location', 'home');
         } elseif ($total > 1) {
             return view('auth.rol')->with('grupos', $grupos->pluck('nombre', 'id'));
         } else {
