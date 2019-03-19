@@ -47,10 +47,11 @@ class PaginaController extends Controller {
             flash("El nombre de la página <strong>" . $pagina->nombre . "</strong> es incorrecto, recuerde que debe tener la estructura PAG_ seguido del nombre que ud desee.")->warning();
             return redirect()->route('pagina.create');
         }
+        $u = Auth::user();
+        $pagina->user_change = $u->identificacion;
         $result = $pagina->save();
         if ($result) {
             $aud = new Auditoriausuario();
-            $u = Auth::user();
             $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
             $aud->operacion = "INSERTAR";
             $str = "CREACIÓN DE PAGINA. DATOS: ";
