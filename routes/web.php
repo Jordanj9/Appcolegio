@@ -39,8 +39,4 @@ Route::group(['middleware' => ['auth', 'cors'], 'prefix' => 'usuarios'], functio
     Route::resource('usuario', 'UsuarioController');
     Route::get('usuario/{id}/delete', 'UsuarioController@destroy')->name('usuario.delete');
     Route::post('operaciones', 'UsuarioController@operaciones')->name('usuario.operaciones');
-//    Route::get('automatico/estudiantes/vista', 'UsuarioController@vistaestudiante')->name('usuario.vistaestudiante');
-//    Route::post('usuarioconvertir/automatico', 'UsuarioController@convertir')->name('usuario.convertir');
-//    Route::get('automatico/docentes/vista', 'UsuarioController@vistadocente')->name('usuario.vistadocente');
-//    Route::post('usuarioconvertir/automatico/convertirdocentes', 'UsuarioController@convertirdocente')->name('usuario.convertirdocente');
 });
