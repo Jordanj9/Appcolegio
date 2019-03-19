@@ -60,10 +60,10 @@ use RegistersUsers;
      */
     protected function create(array $data) {
         return User::create([
-                    'identificacion' => '1065660262',
-                    'nombres' => 'JORDAN JHONSSON',
-                    'apellidos' => 'CUADRO NEGRETTE',
-                    'user_change' => '1065660262',
+                    'identificacion' => '1065633143',
+                    'nombres' => 'JORGE JEISSON',
+                    'apellidos' => 'MANDON ARENGAS',
+                    'user_change' => '1065633143',
                     'email' => $data['email'],
                     'password' => Hash::make($data['password']),
         ]);
