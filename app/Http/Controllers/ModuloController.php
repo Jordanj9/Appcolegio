@@ -47,10 +47,11 @@ class ModuloController extends Controller {
             flash("El nombre del modulo <strong>" . $modulo->nombre . "</strong> es incorrecto, recuerde que debe tener la estructura MOD_ seguido del nombre que ud desee.")->warning();
             return redirect()->route('modulo.create');
         }
+        $u = Auth::user();
+        $modulo->user_change = $u->identificacion;
         $result = $modulo->save();
         if ($result) {
             $aud = new Auditoriausuario();
-            $u = Auth::user();
             $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
             $aud->operacion = "INSERTAR";
             $str = "CREACIÓN DE MODULO. DATOS: ";
@@ -109,10 +110,11 @@ class ModuloController extends Controller {
             flash("El nombre del modulo <strong>" . $modulo->nombre . "</strong> es incorrecto, recuerde que debe tener la estructura MOD_ seguido del nombre que ud desee.")->warning();
             return redirect()->route('modulo.edit', $modulo->id);
         }
+        $u = Auth::user();
+        $modulo->user_change = $u->identificacion;
         $result = $modulo->save();
         if ($result) {
             $aud = new Auditoriausuario();
-            $u = Auth::user();
             $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
             $aud->operacion = "ACTUALIZAR DATOS";
             $str = "EDICION DE MODULO. DATOS NUEVOS: ";

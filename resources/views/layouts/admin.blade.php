@@ -33,6 +33,8 @@
         <link rel="stylesheet" href="{{ asset('bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
         <!-- bootstrap wysihtml5 - text editor -->
         <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="{{ asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -369,7 +371,7 @@
                                                     </a>
                                                 </li>
                                                 <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-                                                                                                                                                                                                                                                                                   <li>                                                                                                                                                <a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>-->
+                                                                                                                                                        <li>                                                                                                                                                <a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>-->
                         <li>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form2').submit();">
@@ -634,6 +636,9 @@
         <script src="{{ asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
         <!-- Bootstrap WYSIHTML5 -->
         <script src="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
+        <!-- DataTables -->
+        <script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+        <script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
         <!-- Slimscroll -->
         <script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
         <!-- FastClick -->
@@ -646,9 +651,6 @@
         <script src="{{ asset('dist/js/demo.js')}}"></script>
         <script type="text/javascript">
                                 var url = "<?php echo config('app.url'); ?>public/";
-                                $(document).ready(function () {
-//
-                                });
         </script>
         @yield('script')
     </body>
