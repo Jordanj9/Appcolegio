@@ -45,7 +45,7 @@
                         <input class="form-control" type="text" name="descripcion">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label>Seleccione los Módulos a los que el Grupo Tendrá Acceso</label>
                         <select class="form-control select2" multiple="multiple"  style="width: 100%;" name="modulos[]">

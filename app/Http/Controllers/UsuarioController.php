@@ -281,15 +281,16 @@ class UsuarioController extends Controller {
                 flash('Las contraseñas no coinciden.')->error();
                 return redirect()->route('menu.usuarios');
             } else {
-                $u = User::where('identificacion', $request->identificacion2)->first();
-                $u->password = bcrypt($request->pass1);
-                if ($u->save()) {
-                    $aud = new AuditoriaAcademico();
-                    $u = Auth::user();
+                $us = User::where('identificacion', $request->identificacion2)->first();
+                $us->password = bcrypt($request->pass1);
+                $u = Auth::user();
+                $us->user_change = $u->identificacion;
+                if ($us->save()) {
+                    $aud = new Auditoriausuario();
                     $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
                     $aud->operacion = "ACTUALIZACIÓN DE DATOS";
                     $str = "CAMBIO DE CONTRASEÑA DE USUARIO. DATOS ELIMINADOS: ";
-                    foreach ($grupo->attributesToArray() as $key => $value) {
+                    foreach ($us->attributesToArray() as $key => $value) {
                         $str = $str . ", " . $key . ": " . $value;
                     }
                     $aud->detalles = $str;

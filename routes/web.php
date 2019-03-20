@@ -19,7 +19,6 @@ Auth::routes();
 //cambiar contraseña
 //Route::get('usuarios/contrasenia/cambiar', 'UsuarioController@vistacontrasenia')->name('usuario.vistacontrasenia');
 //Route::post('usuarios/contrasenia/cambiar/finalizar', 'UsuarioController@cambiarcontrasenia')->name('usuario.cambiarcontrasenia');
-//Route::post('usuarios/contrasenia/cambiar/admin/finalizar', 'UsuarioController@cambiarPass')->name('usuario.cambiarPass');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -46,4 +45,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'usuarios'], function() {
     Route::resource('usuario', 'UsuarioController');
     Route::get('usuario/{id}/delete', 'UsuarioController@destroy')->name('usuario.delete');
     Route::post('operaciones', 'UsuarioController@operaciones')->name('usuario.operaciones');
+    Route::post('usuarios/contrasenia/cambiar/admin/finalizar', 'UsuarioController@cambiarPass')->name('usuario.cambiarPass');
 });

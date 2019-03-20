@@ -46,13 +46,27 @@
                         <input class="form-control" type="text" name="descripcion" value="{{$grupo->descripcion}}">
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label>Seleccione los Módulos a los que el Grupo Tendrá Acceso</label>
                         <select class="form-control select2" multiple="multiple"  style="width: 100%;" name="modulos[]">
                             <option value="0">-- Seleccione una opción --</option>
                             @foreach($modulos as $key=>$value)
+                            <?php
+                            $existe = false;
+                            ?>
+                            @foreach($grupo->modulos as $m)
+                            @if($m->id==$key)
+                            <?php
+                            $existe = true;
+                            ?>
+                            @endif
+                            @endforeach
+                            @if($existe)
+                            <option value="{{$key}}" selected>{{$value}}</option>
+                            @else
                             <option value="{{$key}}">{{$value}}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>

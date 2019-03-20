@@ -115,7 +115,33 @@
             @endcomponent
         </div>
         <div class="col-md-12">
-            
+            <form class="form" role="form" method="POST" action="{{route('usuario.cambiarPass')}}">
+                @csrf
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Identificación del Usuario</label>
+                        <input type="text" name="identificacion2" value="{{$user->identificacion}}" class="form-control" readonly required="required" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Escriba la Nueva Contraseña</label>
+                        <input type="password" name="pass1" class="form-control" placeholder="Mínimo 6 caracteres"required="required" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Vuelva a Escribir La Nueva Contraseña</label>
+                        <input type="password" name="pass2" class="form-control" placeholder="Mínimo 6 caracteres"required="required" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <button class="btn btn-info icon-btn pull-left" type="reset"><i class="fa fa-fw fa-lg fa-trash-o"></i>Limpiar</button>
+                        <button class="btn btn-success icon-btn pull-left" type="submit"><i class="fa fa-fw fa-lg fa-save"></i>Guardar</button>
+                    </div>
+                </div> 
+            </form>
         </div>
     </div>
 </div>

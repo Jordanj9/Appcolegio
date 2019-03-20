@@ -157,7 +157,7 @@ class GrupousuarioController extends Controller {
         } else {
             $result = $grupo->delete();
             if ($result) {
-                $aud = new AuditoriaAcademico();
+                $aud = new Auditoriausuario();
                 $u = Auth::user();
                 $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
                 $aud->operacion = "ELIMINAR";
