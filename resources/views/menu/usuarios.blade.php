@@ -26,24 +26,64 @@
         </div>
     </div>
     <div class="box-body">
+        @if(session()->exists('PAG_MODULOS'))
         <div class="col-md-4">
             <a href="{{route('modulo.index')}}" class="btn btn-info btn-raised btn-block btn-flat" style="background-color: #3c8dbc;"> MÓDULOS DEL SISTEMA</a>
         </div>
+        @endif
+        @if(session()->exists('PAG_PAGINAS'))
         <div class="col-md-4">
             <a href="{{route('pagina.index')}}" class="btn btn-info btn-raised btn-block btn-flat" style="background-color: #3c8dbc;"> PÁGINAS DEL SISTEMA</a>
         </div>
+        @endif
+        @if(session()->exists('PAG_GRUPOS-ROLES'))
         <div class="col-md-4">
             <a href="{{route('grupousuario.index')}}" class="btn btn-info btn-raised btn-block btn-flat" style="background-color: #3c8dbc;"> GRUPOS DE USUARIOS(ROLES)</a>
         </div>
+        @endif
+        @if(session()->exists('PAG_PRIVILEGIOS'))
         <div class="col-md-4">
             <a href="{{route('grupousuario.privilegios')}}" class="btn btn-info btn-raised btn-block btn-flat" style="background-color: #3c8dbc;"> PRIVILEGIOS A PÁGINAS</a>
         </div>
+        @endif
+        @if(session()->exists('PAG_USUARIOS'))
         <div class="col-md-4">
-            <a href="{{route('usuario.index')}}" class="btn btn-info btn-raised btn-block btn-flat" style="background-color: #3c8dbc;"> LISTAR TODOS LOS USUARIOS</a>
+            <a href="{{route('usuario.index')}}" class="btn btn-info btn-raised btn-block btn-flat" style="background-color: #3c8dbc;" data-toggle="tooltip" title="Tenga en cuenta que al cargar gran cantidad de registros puede hacer que el navegador se bloquee y deba esperar a que este cargue todos los registros de la base de datos para continuar la navegación."> LISTAR TODOS LOS USUARIOS</a>
         </div>
+        @endif
+        @if(session()->exists('PAG_USUARIO-MANUAL'))
         <div class="col-md-4">
             <a href="{{route('usuario.create')}}" class="btn btn-info btn-raised btn-block btn-flat" style="background-color: #3c8dbc;"> CREAR USUARIO</a>
         </div>
+        @endif
     </div>
 </div>
+@if(session()->exists('PAG_OPERACIONES-USUARIO'))
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">MODIFICACIÓN, ELIMINACIÓN DE USUARIOS Y CAMBIO DE CONTRASEÑA</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
+                <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar">
+                <i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="col-md-12">
+            <form class="form" role="form" method="POST" action="{{route('usuario.operaciones')}}">
+                @csrf
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <input type="text" id="id" name="id" class="form-control" placeholder="Escriba la identificación a consultar" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-info icon-btn pull-left btn-raised btn-block" type="submit"><i class="fa fa-fw fa-lg fa-save"></i>Consultar Usuario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endif
 @endsection

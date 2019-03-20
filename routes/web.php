@@ -38,12 +38,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'usuarios'], function() {
     Route::resource('pagina', 'PaginaController');
     //GRUPOS DE USUARIOS
     Route::resource('grupousuario', 'GrupousuarioController');
-    //Route::get('grupousuario/{id}/delete', 'GrupousuarioController@destroy')->name('grupousuario.delete');
+    Route::get('grupousuario/{id}/delete', 'GrupousuarioController@destroy')->name('grupousuario.delete');
     Route::get('privilegios', 'GrupousuarioController@privilegios')->name('grupousuario.privilegios');
     Route::get('grupousuario/{id}/privilegios', 'GrupousuarioController@getPrivilegios');
     Route::post('grupousuario/privilegios', 'GrupousuarioController@setPrivilegios')->name('grupousuario.guardar');
     //USUARIOS
     Route::resource('usuario', 'UsuarioController');
     //Route::get('usuario/{id}/delete', 'UsuarioController@destroy')->name('usuario.delete');
-    //Route::post('operaciones', 'UsuarioController@operaciones')->name('usuario.operaciones');
+    Route::post('operaciones', 'UsuarioController@operaciones')->name('usuario.operaciones');
 });

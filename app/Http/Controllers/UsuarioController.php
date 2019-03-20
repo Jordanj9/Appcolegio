@@ -50,7 +50,7 @@ class UsuarioController extends Controller {
         $user = User::where('identificacion', $_POST["id"])->first();
         if ($user === null) {
             flash("<strong>El usuario</strong> consultado no se encuentra registrado!")->error();
-            return redirect()->route('admin.usuarios');
+            return redirect()->route('menu.usuarios');
         }
         $user->grupousuarios;
         $grupos = Grupousuario::all()->sortBy('nombre')->pluck('nombre', 'id');
