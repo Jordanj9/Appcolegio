@@ -35,7 +35,9 @@
         <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
         <!-- DataTables -->
         <link rel="stylesheet" href="{{ asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
-
+        <link href="{{asset('plugins/pnotify/dist/pnotify.css')}}" rel="stylesheet">
+        <link href="{{asset('plugins/pnotify/dist/pnotify.buttons.css')}}" rel="stylesheet">
+        <link href="{{asset('plugins/pnotify/dist/pnotify.nonblock.css')}}" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -643,6 +645,9 @@
         <script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
         <!-- FastClick -->
         <script src="{{ asset('bower_components/fastclick/lib/fastclick.js')}}"></script>
+        <script src="{{ asset('plugins/pnotify/dist/pnotify.js')}}"></script>
+        <script src="{{ asset('plugins/pnotify/dist/pnotify.buttons.js')}}"></script>
+        <script src="{{ asset('plugins/pnotify/dist/pnotify.nonblock.js')}}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('dist/js/adminlte.min.js')}}"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -651,6 +656,15 @@
         <script src="{{ asset('dist/js/demo.js')}}"></script>
         <script type="text/javascript">
                                 var url = "<?php echo config('app.url'); ?>public/";
+
+                                function notify(title, text, type) {
+                                    new PNotify({
+                                        title: title,
+                                        text: text,
+                                        type: type,
+                                        styling: 'bootstrap3'
+                                    });
+                                }
         </script>
         @yield('script')
     </body>

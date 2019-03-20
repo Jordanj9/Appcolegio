@@ -33,15 +33,19 @@
             <form class="form" role='form' method="POST" action="{{route('modulo.store')}}">
                 @csrf
                 <div class="col-md-6">
-                    <label>Nombre del Módulo</label>
-                    <input class="form-control" type="text" required="required" name="nombre">
+                    <div class="form-group">
+                        <label>Nombre del Módulo</label>
+                        <input class="form-control" type="text" required="required" name="nombre">
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <label>Descripción (opcional)</label>
-                    <input class="form-control" type="text" name="descripcion">
+                    <div class="form-group">
+                        <label>Descripción (opcional)</label>
+                        <input class="form-control" type="text" name="descripcion">
+                    </div>
                 </div>
-                <div class="form-group">
-                    <div class="col-md-12" style="margin-top: 20px !important">
+                <div class="col-md-12" style="margin-top: 20px !important">
+                    <div class="form-group">
                         <button class="btn btn-success icon-btn pull-left" type="submit"><i class="fa fa-fw fa-lg fa-save"></i>Guardar</button>
                         <button class="btn btn-info icon-btn pull-left" type="reset"><i class="fa fa-fw fa-lg fa-trash-o"></i>Limpiar</button>
                         <a class="btn btn-danger icon-btn pull-left" href="{{route('modulo.index')}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>

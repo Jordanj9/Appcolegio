@@ -8,6 +8,7 @@ use App\Grupousuario;
 use App\Auditoriausuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Pagina;
 
 class GrupousuarioController extends Controller {
 
