@@ -16,6 +16,8 @@
         <link rel="stylesheet" href="{{ asset('bower_components/Ionicons/css/ionicons.min.css')}}">
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css')}}">
+        <!-- Select2 -->
+        <link rel="stylesheet" href="{{ asset('bower_components/select2/dist/css/select2.min.css')}}">
         <!-- Material Design -->
         <link rel="stylesheet" href="{{ asset('dist/css/bootstrap-material-design.min.css')}}">
         <link rel="stylesheet" href="{{ asset('dist/css/ripples.min.css')}}">
@@ -648,6 +650,8 @@
         <script src="{{ asset('plugins/pnotify/dist/pnotify.js')}}"></script>
         <script src="{{ asset('plugins/pnotify/dist/pnotify.buttons.js')}}"></script>
         <script src="{{ asset('plugins/pnotify/dist/pnotify.nonblock.js')}}"></script>
+        <!-- Select2 -->
+        <script src="{{ asset('bower_components/select2/dist/js/select2.full.min.js')}}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('dist/js/adminlte.min.js')}}"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

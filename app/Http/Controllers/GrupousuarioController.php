@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\GrupousuarioRequest;
 use App\Grupousuario;
+use App\Modulo;
 use App\Auditoriausuario;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -42,16 +43,17 @@ class GrupousuarioController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Grupousuario $request) {
+    public function store(GrupousuarioRequest $request) {
         $grupo = new Grupousuario($request->all());
         foreach ($grupo->attributesToArray() as $key => $value) {
             $grupo->$key = strtoupper($value);
         }
+        $u = Auth::user();
+        $grupo->user_change = $u->identificacion;
         $result = $grupo->save();
         $grupo->modulos()->sync($request->modulos);
         if ($result) {
             $aud = new Auditoriausuario();
-            $u = Auth::user();
             $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
             $aud->operacion = "INSERTAR";
             $str = "CREACIÓN DE GRUPO DE USUARIO. DATOS: ";
@@ -115,11 +117,12 @@ class GrupousuarioController extends Controller {
                 $grupo->$key = strtoupper($request->$key);
             }
         }
+        $u = Auth::user();
+        $grupo->user_change = $u->identificacion;
         $result = $grupo->save();
         $grupo->modulos()->sync($request->modulos);
         if ($result) {
             $aud = new Auditoriausuario();
-            $u = Auth::user();
             $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
             $aud->operacion = "ACTUALIZAR DATOS";
             $str = "EDICION DE GRUPO DE USUARIOS. DATOS NUEVOS: ";

@@ -7,17 +7,17 @@
 <ol class="breadcrumb">
     <li><a href="{{route('home')}}"><i class="fa fa-home"></i> Inicio</a></li>
     <li><a href="{{route('menu.usuarios')}}"><i class="fa fa-users"></i> Usuarios</a></li>
-    <li class="active"><a>Páginas</a></li>
+    <li class="active"><a>Grupos de Usuarios</a></li>
 </ol>
 @endsection
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">LISTADO DE PÁGINAS</h3>
+        <h3 class="box-title">LISTADO DE GRUPOS DE USUARIOS</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>
-            <a href="{{route('pagina.create')}}" class="btn btn-box-tool" data-toggle="tooltip" data-original-title="Agregar Página">
+            <a href="{{route('grupousuario.create')}}" class="btn btn-box-tool" data-toggle="tooltip" data-original-title="Agregar Grupo">
                 <i class="fa fa-plus-circle"></i></a>
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
                 <i class="fa fa-minus"></i></button>
@@ -31,7 +31,7 @@
                 <thead>
                     <tr class="info">
                         <th>ID</th>
-                        <th>PÁGINA</th>
+                        <th>GRUPO</th>
                         <th>DESCRIPCIÓN</th>
                         <th>CREADO</th>
                         <th>MODIFICADO</th>
@@ -39,7 +39,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($paginas as $m)
+                    @foreach($grupos as $m)
                     <tr>
                         <td>{{$m->id}}</td>
                         <td>{{$m->nombre}}</td>
@@ -47,7 +47,9 @@
                         <td>{{$m->created_at}}</td>
                         <td>{{$m->updated_at}}</td>
                         <td>
-                            <a href="{{route('pagina.edit',$m->id)}}" data-toggle="tooltip" title="Editar Página" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
+                            <a href="{{route('grupousuario.edit',$m->id)}}" data-toggle="tooltip" title="Editar Grupo" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
+                            <a href="{{route('grupousuario.show',$m->id)}}" data-toggle="tooltip" title="Ver Grupo" style="color: green; margin-left: 10px;"><i class="fa fa-eye"></i></a>
+                            <a href="{{route('grupousuario.delete',$m->id)}}" data-toggle="tooltip" title="Eliminar Grupo" style="color: red; margin-left: 10px;"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -65,8 +67,7 @@
                 <h4 class="modal-title">Información de Ayuda</h4>
             </div>
             <div class="modal-body">
-                <p>Las paginas o ítems de los módulos del sistema son las funcionalidades más específicas o detalladas de los módulos. Ejemplo de página general: ESTUDIANTES, CIUDADES, DOCENTES, MATERIAS, ETC.</p>
-                <p><b>Nota:</b> No modifique los nombres de las páginas ya creadas ya que puede ocasionar fallas en el sistema.</p>
+                <p>Los grupos de usuarios son los roles o agrupaciones de usuarios que permite asignarle privilegios a todo un conglomerado de usuarios que comparte funciones. Ejemplo de grupos de usuarios: ADMINISTRADORES, ESTUDIANTES, SISTEMAS, DOCENTES, ETC.</p>
             </div>
             <div class="modal-footer" style="background-color: #d2d6de !important; opacity: .65;">
                 <button type="button"  class="btn btn-block btn-danger btn-flat pull-right" data-dismiss="modal"> <i class="fa fa-reply"></i> Regresar</button>
