@@ -44,6 +44,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'usuarios'], function() {
     Route::post('grupousuario/privilegios', 'GrupousuarioController@setPrivilegios')->name('grupousuario.guardar');
     //USUARIOS
     Route::resource('usuario', 'UsuarioController');
-    //Route::get('usuario/{id}/delete', 'UsuarioController@destroy')->name('usuario.delete');
+    Route::get('usuario/{id}/delete', 'UsuarioController@destroy')->name('usuario.delete');
     Route::post('operaciones', 'UsuarioController@operaciones')->name('usuario.operaciones');
 });

@@ -13,7 +13,7 @@
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">EDITAR, ELIMINAR USUARIO O MODIFICAR CONTRASEÑA</h3>
+        <h3 class="box-title">EDITAR, ELIMINAR USUARIO</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>
@@ -35,21 +35,21 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Identificación del Usuario</label>
-                        <input type="text" name="identificacion" class="form-control" placeholder="Escriba el número de identificación del usuario, con éste tendrá acceso al sistema" required="required" />
+                        <input type="text" name="identificacion" value="{{$user->identificacion}}" class="form-control" placeholder="Escriba el número de identificación del usuario, con éste tendrá acceso al sistema" required="required" />
                     </div>
                     <div class="form-group">
                         <label>Nombres del Usuario</label>
-                        <input type="text" name="nombres" class="form-control" placeholder="Escriba los nombres del usuario" required="required" />
+                        <input type="text" name="nombres" value="{{$user->nombres}}" class="form-control" placeholder="Escriba los nombres del usuario" required="required" />
                     </div>
                     <div class="form-group">
                         <label>Apellidos del Usuario</label>
-                        <input type="text" name="apellidos" class="form-control" placeholder="Escriba los apellidos del usuario" required="required" />
+                        <input type="text" name="apellidos" value="{{$user->apellidos}}" class="form-control" placeholder="Escriba los apellidos del usuario" required="required" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>E-mail del Usuario</label>
-                        <input type="email" name="email" class="form-control" placeholder="Escriba el correo electrónico del usuario" required="required" />
+                        <input type="email" name="email" value="{{$user->email}}" class="form-control" placeholder="Escriba el correo electrónico del usuario" required="required" />
                     </div>
                     <div class="form-group">
                         <label>Seleccione Estado del Usuario</label>
@@ -66,14 +66,56 @@
                     </div>
                     <div class="form-group">
                         <label>Seleccione los Grupos o Roles de Usuarios</label>
-                        <select class="form-control" name="grupos[]" required="required" multiple>
-                            <option value="0">-- Seleccione una opción --</option>
-                            
+                        <select class="form-control select2" name="grupos[]" required="required" multiple>
+                            @foreach($grupos as $key=>$value)
+                            <?php
+                            $existe = false;
+                            ?>
+                            @foreach($user->grupousuarios as $g)
+                            @if($g->id==$key)
+                            <?php
+                            $existe = true;
+                            ?>
+                            @endif
+                            @endforeach
+                            @if($existe)
+                            <option value="{{$key}}" selected>{{$value}}</option>
+                            @else
+                            <option value="{{$key}}">{{$value}}</option>
+                            @endif
+                            @endforeach
                         </select>
                     </div>
                 </div>
-                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <a class="btn btn-danger icon-btn pull-left" href="{{route('menu.usuarios')}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+                        <button class="btn btn-info icon-btn pull-left" type="reset"><i class="fa fa-fw fa-lg fa-trash-o"></i>Limpiar</button>
+                        <button class="btn btn-success icon-btn pull-left" type="submit"><i class="fa fa-fw fa-lg fa-save"></i>Guardar</button>
+                        <a href="{{ route('usuario.delete',$user->id)}}" class="btn btn-danger icon-btn pull-left"><i class="fa fa-fw fa-lg fa-remove"></i>Eliminar Usuario</a>
+                    </div>
+                </div>                                        
             </form>
+        </div>
+    </div>
+</div>
+<div class="box">
+    <div class="box-header with-border">
+        <h3 class="box-title">CAMBIAR CONTRASEÑA</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
+                <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar">
+                <i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+        <div class="col-md-12">
+            @component('layouts.errors')
+            @endcomponent
+        </div>
+        <div class="col-md-12">
+            
         </div>
     </div>
 </div>
@@ -101,7 +143,7 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function () {
-
+        $(".select2").select2();
     });
 </script>
 @endsection

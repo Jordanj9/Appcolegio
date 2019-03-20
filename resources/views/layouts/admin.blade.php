@@ -14,10 +14,10 @@
         <link rel="stylesheet" href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css')}}">
         <!-- Ionicons -->
         <link rel="stylesheet" href="{{ asset('bower_components/Ionicons/css/ionicons.min.css')}}">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css')}}">
         <!-- Select2 -->
         <link rel="stylesheet" href="{{ asset('bower_components/select2/dist/css/select2.min.css')}}">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="{{ asset('dist/css/AdminLTE.min.css')}}">
         <!-- Material Design -->
         <link rel="stylesheet" href="{{ asset('dist/css/bootstrap-material-design.min.css')}}">
         <link rel="stylesheet" href="{{ asset('dist/css/ripples.min.css')}}">

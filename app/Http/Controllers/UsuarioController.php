@@ -11,6 +11,7 @@ use App\Modulo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Auditoriausuario;
 
 class UsuarioController extends Controller {
 
@@ -77,24 +78,25 @@ class UsuarioController extends Controller {
                 $user->$key = strtoupper($value);
             }
         }
+        $u = Auth::user();
+        $user->user_change = $u->identificacion;
         $result = $user->save();
         $user->grupousuarios()->sync($request->grupos);
         if ($result) {
             $aud = new Auditoriausuario();
-            $u = Auth::user();
             $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
             $aud->operacion = "INSERTAR";
             $str = "CREACIÓN DE USUARIO. DATOS: ";
-            foreach ($pagina->attributesToArray() as $key => $value) {
+            foreach ($user->attributesToArray() as $key => $value) {
                 $str = $str . ", " . $key . ": " . $value;
             }
             $aud->detalles = $str;
             $aud->save();
             flash("El usuario <strong>" . $user->nombres . "</strong> fue almacenado de forma exitosa!")->success();
-            return redirect()->route('admin.usuarios');
+            return redirect()->route('menu.usuarios');
         } else {
             flash("El usuario <strong>" . $user->nombres . "</strong> no pudo ser almacenado. Error: " . $result)->error();
-            return redirect()->route('admin.usuarios');
+            return redirect()->route('menu.usuarios');
         }
     }
 
@@ -137,6 +139,8 @@ class UsuarioController extends Controller {
                 }
             }
         }
+        $u = Auth::user();
+        $user->user_change = $u->identificacion;
         $result = $user->save();
         $user->grupousuarios()->sync($request->grupos);
         if ($result) {
@@ -149,16 +153,16 @@ class UsuarioController extends Controller {
             foreach ($m->attributesToArray() as $key => $value) {
                 $str2 = $str2 . ", " . $key . ": " . $value;
             }
-            foreach ($pagina->attributesToArray() as $key => $value) {
+            foreach ($user->attributesToArray() as $key => $value) {
                 $str = $str . ", " . $key . ": " . $value;
             }
             $aud->detalles = $str . " - " . $str2;
             $aud->save();
             flash("El usuario <strong>" . $user->nombres . "</strong> fue modificado de forma exitosa!")->success();
-            return redirect()->route('admin.usuarios');
+            return redirect()->route('menu.usuarios');
         } else {
             flash("El usuario <strong>" . $user->nombres . "</strong> no pudo ser modificado. Error: " . $result)->error();
-            return redirect()->route('admin.usuarios');
+            return redirect()->route('menu.usuarios');
         }
     }
 
@@ -173,21 +177,21 @@ class UsuarioController extends Controller {
         $result = $user->delete();
         DB::table('grupousuario_user')->where('user_id', '=', $id)->delete();
         if ($result) {
-            $aud = new AuditoriaAcademico();
+            $aud = new Auditoriausuario();
             $u = Auth::user();
             $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
             $aud->operacion = "ELIMINAR";
             $str = "ELIMINACIÓN DE USUARIO. DATOS ELIMINADOS: ";
-            foreach ($grupo->attributesToArray() as $key => $value) {
+            foreach ($user->attributesToArray() as $key => $value) {
                 $str = $str . ", " . $key . ": " . $value;
             }
             $aud->detalles = $str;
             $aud->save();
             flash("El usuario <strong>" . $user->nombres . "</strong> fue eliminado de forma exitosa!")->success();
-            return redirect()->route('admin.usuarios');
+            return redirect()->route('menu.usuarios');
         } else {
             flash("El usuario <strong>" . $user->nombres . "</strong> no pudo ser eliminado. Error: " . $result)->error();
-            return redirect()->route('admin.usuarios');
+            return redirect()->route('menu.usuarios');
         }
     }
 
@@ -271,11 +275,11 @@ class UsuarioController extends Controller {
     public function cambiarPass(Request $request) {
         if (strlen($request->pass1) < 6 or strlen($request->pass2) < 6) {
             flash('La nueva contraseña no puede tener menos de 6 caracteres.')->error();
-            return redirect()->route('admin.usuarios');
+            return redirect()->route('menu.usuarios');
         } else {
             if ($request->pass1 !== $request->pass2) {
                 flash('Las contraseñas no coinciden.')->error();
-                return redirect()->route('admin.usuarios');
+                return redirect()->route('menu.usuarios');
             } else {
                 $u = User::where('identificacion', $request->identificacion2)->first();
                 $u->password = bcrypt($request->pass1);
@@ -291,10 +295,10 @@ class UsuarioController extends Controller {
                     $aud->detalles = $str;
                     $aud->save();
                     flash('Contraseña cambiada con exito.')->success();
-                    return redirect()->route('admin.usuarios');
+                    return redirect()->route('menu.usuarios');
                 } else {
                     flash('La contraseña no pudo ser cambiada.')->error();
-                    return redirect()->route('admin.usuarios');
+                    return redirect()->route('menu.usuarios');
                 }
             }
         }
