@@ -15,8 +15,8 @@ class PaisController extends Controller {
      */
     public function index() {
         $paises = pais::all();
-        return view('academico.datos_generales.paises.list')
-                        ->with('location', 'academico')
+        return view('admisiones.datos_generales.paises.list')
+                        ->with('location', 'admisiones')
                         ->with('paises', $paises);
     }
 
@@ -26,8 +26,8 @@ class PaisController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('academico.datos_generales.paises.create')
-                        ->with('location', 'academico');
+        return view('admisiones.datos_generales.paises.create')
+                        ->with('location', 'admisiones');
     }
 
     /**
@@ -63,8 +63,8 @@ class PaisController extends Controller {
      */
     public function show($id) {
         $pais = Pais::find($id);
-        return view('academico.datos_generales.paises.show')
-                        ->with('location', 'academico')
+        return view('admisiones.datos_generales.paises.show')
+                        ->with('location', 'admisiones')
                         ->with('pais', $pais);
     }
 
@@ -76,8 +76,8 @@ class PaisController extends Controller {
      */
     public function edit($id) {
         $pais = Pais::find($id);
-        return view('academico.datos_generales.paises.edit')
-                        ->with('location', 'academico')
+        return view('admisiones.datos_generales.paises.edit')
+                        ->with('location', 'admisiones')
                         ->with('pais', $pais);
     }
 

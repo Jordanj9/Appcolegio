@@ -39,17 +39,17 @@
                         <div class="row">
                             <!--                        @if(session()->exists('PAG_MODULOS'))-->
                             <div class="col-md-3">
-                                <a href="{{route('modulo.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> PAÍSES</a>
+                                <a href="{{route('pais.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> PAÍSES</a>
                             </div>
                             <!--                        @endif-->
                             <!--                        @if(session()->exists('PAG_PAGINAS'))-->
                             <div class="col-md-5">
-                                <a href="{{route('pagina.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> DEPARTAMENTOS, ESTADOS Ó PROVINCIAS</a>
+                                <a href="{{route('estado.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> DEPARTAMENTOS, ESTADOS Ó PROVINCIAS</a>
                             </div>
                             <!--                        @endif-->
                             <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
                             <div class="col-md-4">
-                                <a href="{{route('grupousuario.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> CIUDADES</a>
+                                <a href="{{route('ciudad.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> CIUDADES</a>
                             </div>
                             <!--                        @endif-->
                         </div>

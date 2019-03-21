@@ -13,7 +13,7 @@ class PaisRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class PaisRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'codigo' => 'required|max:3|min:1|unique:pais',
+            'nombre' => 'required|min:5|max:250'
         ];
     }
 }
