@@ -65,7 +65,7 @@ class HomeController extends Controller {
         foreach ($modulos as $value) {
             session([$value->nombre => $value->nombre]);
         }
-        return view('home')->with('location', 'inicio');
+        return view('home')->with('location', 'home');
     }
 
     /**
@@ -74,7 +74,7 @@ class HomeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function inicio() {
-        return view('home')->with('location', 'inicio');
+        return view('home')->with('location', 'home');
     }
 
 }

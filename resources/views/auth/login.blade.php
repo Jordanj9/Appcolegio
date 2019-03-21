@@ -43,7 +43,9 @@
                 <!-- /.col -->
             </div>
         </form>
-        <a href="{{route('register')}}" class="text-center"> ¿No tienes una cuenta? Registrate</a>
+        @if (Route::has('password.request'))
+        <a href="{{ route('password.request') }}" class="text-center"> ¿Olvidaste la contraseña? Recupérala</a>
+        @endif
     </div>
     <!-- /.login-box-body -->
 </div>

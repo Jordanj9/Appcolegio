@@ -666,7 +666,7 @@
         <!-- AdminLTE for demo purposes -->
         <script src="{{ asset('dist/js/demo.js')}}"></script>
         <script type="text/javascript">
-                                var url = "<?php echo config('app.url'); ?>public/";
+                                var url = "<?php echo config('app.url'); ?>/";
 
                                 function notify(title, text, type) {
                                     new PNotify({

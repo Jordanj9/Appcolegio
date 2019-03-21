@@ -50,3 +50,20 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'usuarios'], function() {
     Route::post('acceso', 'HomeController@confirmaRol')->name('rol');
     Route::get('inicio', 'HomeController@inicio')->name('inicio');
 });
+
+
+//GRUPO DE RUTAS PARA LOS PROCESOs DE ADMISIÓN Y SELECCIÓN
+Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
+//PAISES
+    Route::resource('pais', 'PaisController');
+    Route::get('pais/{id}/delete', 'PaisController@destroy')->name('pais.delete');
+    Route::get('pais/{id}/estados', 'PaisController@estados')->name('pais.estados');
+    //ESTADOS
+    Route::resource('estado', 'EstadoController');
+    Route::get('estado/{id}/delete', 'EstadoController@destroy')->name('estado.delete');
+    Route::get('estado/{id}/ciudades', 'EstadoController@ciudades')->name('estado.ciudades');
+    //CIUDADES
+    Route::resource('ciudad', 'CiudadController');
+    Route::get('ciudad/{id}/delete', 'CiudadController@destroy')->name('ciudad.delete');
+    Route::get('ciudad/{id}/sectores', 'CiudadController@sectores')->name('ciudad.sectores');
+});
