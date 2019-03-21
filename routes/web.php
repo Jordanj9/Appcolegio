@@ -26,6 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //GRUPO DE RUTAS PARA LOS MENUS
 Route::group(['middleware' => ['auth'], 'prefix' => 'menu'], function() {
     Route::get('usuarios', 'MenuController@usuarios')->name('menu.usuarios');
+    Route::get('admisiones', 'MenuController@admisiones')->name('menu.admisiones');
 });
 
 
@@ -46,4 +47,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'usuarios'], function() {
     Route::get('usuario/{id}/delete', 'UsuarioController@destroy')->name('usuario.delete');
     Route::post('operaciones', 'UsuarioController@operaciones')->name('usuario.operaciones');
     Route::post('usuarios/contrasenia/cambiar/admin/finalizar', 'UsuarioController@cambiarPass')->name('usuario.cambiarPass');
+    Route::post('acceso', 'HomeController@confirmaRol')->name('rol');
+    Route::get('inicio', 'HomeController@inicio')->name('inicio');
 });

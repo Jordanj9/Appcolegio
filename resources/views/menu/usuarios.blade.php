@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <button class="btn btn-info icon-btn pull-left btn-raised btn-block" type="submit"><i class="fa fa-fw fa-lg fa-save"></i>Consultar Usuario</button>
+                    <button class="btn btn-info icon-btn pull-left btn-raised btn-block" style="background-color: #3c8dbc;" type="submit"><i class="fa fa-fw fa-lg fa-save"></i>Consultar Usuario</button>
                 </div>
             </form>
         </div>

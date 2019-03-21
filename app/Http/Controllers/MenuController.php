@@ -13,4 +13,11 @@ class MenuController extends Controller {
         return view('menu.usuarios')->with('location', 'usuarios');
     }
 
+    /**
+     * return the view for the manipulation of the admisions process
+     */
+    public function admisiones() {
+        return view('menu.admisiones')->with('location', 'admisiones');
+    }
+
 }

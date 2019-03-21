@@ -24,10 +24,10 @@
         @if(session()->exists('MOD_INICIO'))
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-green"><i class="fa fa-home"></i></span>
+                <span class="info-box-icon bg-aqua-gradient"><i class="fa fa-home"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Inicio</span>
-                    <a href="{{route('home')}}" class="info-box-number">INICIO</a>
+                    <a href="{{route('inicio')}}" class="info-box-number">INICIO</a>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -37,7 +37,7 @@
         @if(session()->exists('MOD_USUARIOS'))
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-blue"><i class="fa fa-users"></i></span>
+                <span class="info-box-icon bg-blue-gradient"><i class="fa fa-users"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Seguridad</span>
                     <a href="{{route('menu.usuarios')}}" class="info-box-number">& USUARIOS</a>
@@ -47,9 +47,22 @@
             <!-- /.info-box -->
         </div>
         @endif
+        @if(session()->exists('MOD_ADMISIONES'))
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-red"><i class="fa fa-sign-out"></i></span>
+                <span class="info-box-icon bg-green-gradient"><i class="fa fa-check-circle-o"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Admisiones</span>
+                    <a href="{{route('menu.admisiones')}}" class="info-box-number">& SELECCIÓN</a>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        @endif
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red-gradient"><i class="fa fa-sign-out"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Adiós</span>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -55,7 +55,7 @@
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="{{route('home')}}" class="logo">
+                <a href="{{route('inicio')}}" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini">C<b>E</b>Z</span>
                     <!-- logo for regular state and mobile devices -->
@@ -287,7 +287,7 @@
                                     <li class="user-footer">
                                         <div class="pull-left">
                                             @if(session()->exists('MOD_INICIO'))
-                                            <a href="{{route('home')}}" class="btn btn-default btn-flat">Inicio</a>
+                                            <a href="{{route('inicio')}}" class="btn btn-default btn-flat">Inicio</a>
                                             @endif
                                         </div>
                                         <div class="pull-right">
@@ -341,9 +341,9 @@
                         <li class="header"><h4>MENÚ PRINCIPAL</h4></li>
                         @if(session()->exists('MOD_INICIO'))
                         @if($location=='home')
-                        <li class="active"><a href="{{route('home')}}"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
+                        <li class="active"><a href="{{route('inicio')}}"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
                         @else
-                        <li><a href="{{route('home')}}"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
+                        <li><a href="{{route('inicio')}}"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
                         @endif
                         @endif
                         @if(session()->exists('MOD_USUARIOS'))
@@ -351,6 +351,13 @@
                         <li class="active"><a href="{{route('menu.usuarios')}}"><i class="fa fa-users"></i> <span>Seguridad & Usuarios</span></a></li>
                         @else
                         <li><a href="{{route('menu.usuarios')}}"><i class="fa fa-users"></i> <span>Seguridad & Usuarios</span></a></li>
+                        @endif
+                        @endif
+                        @if(session()->exists('MOD_ADMISIONES'))
+                        @if($location=='admisiones')
+                        <li class="active"><a href="{{route('menu.admisiones')}}"><i class="fa fa-check-circle-o"></i> <span>Admisiones</span></a></li>
+                        @else
+                        <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-check-circle-o"></i> <span>Admisiones</span></a></li>
                         @endif
                         @endif
                         <!--                        <li class="treeview">
