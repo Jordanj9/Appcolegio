@@ -7,14 +7,14 @@
 <ol class="breadcrumb">
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-users"></i> Admisiones</a></li>
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-cogs"></i> Datos Básicos</a></li>
-    <li><a href="{{route('etnia.index')}}"><i class="fa fa-odnoklassniki"></i> Etnias</a></li>
+    <li><a href="{{route('etnia.index')}}"><i class="fa fa-odnoklassniki"></i> Étnias</a></li>
     <li class="active"><a>Crear</a></li>
 </ol>
 @endsection
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">CREAR NUEVA ETNIA</h3>
+        <h3 class="box-title">CREAR NUEVA ÉTNIA</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>
@@ -35,13 +35,13 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input class="form-control" type="text" required="required" placeholder="Nombre de la etnia" name="nombre">
+                        <input class="form-control" type="text" required="required" placeholder="Nombre de la étnia" name="nombre">
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input class="form-control" type="text" placeholder="Descripción de la etnia" name="descripcion">
+                        <input class="form-control" type="text" placeholder="Descripción de la étnia" name="descripcion">
                     </div>
                 </div>
                 <div class="col-md-12" style="margin-top: 20px !important">
@@ -64,7 +64,7 @@
                 <h4 class="modal-title">Información de Ayuda</h4>
             </div>
             <div class="modal-body">
-                <p>Gestione los diferentes tipos de etnias que existen en colombia. Agregue una nueva etnia.</p>
+                <p>Gestione los diferentes tipos de étnias que existen en colombia. Agregue una nueva étnia.</p>
                </div>
             <div class="modal-footer" style="background-color: #d2d6de !important; opacity: .65;">
                 <button type="button"  class="btn btn-block btn-danger btn-flat pull-right" data-dismiss="modal"> <i class="fa fa-reply"></i> Regresar</button>

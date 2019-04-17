@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Estrato;
 use App\Auditoriaadmision;
 use App\Http\Requests\EstratoRequest;
-use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class EstratoController extends Controller {

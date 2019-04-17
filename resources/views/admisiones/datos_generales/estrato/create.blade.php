@@ -7,7 +7,7 @@
 <ol class="breadcrumb">
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-users"></i> Admisiones</a></li>
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-cogs"></i> Datos Básicos</a></li>
-    <li><a href="{{route('estrato.index')}}"><i class="fa fa-odnoklassniki"></i> NIvel Socieconomico</a></li>
+    <li><a href="{{route('estrato.index')}}"><i class="fa fa-line-chart"></i> NIvel Socieconomico</a></li>
     <li class="active"><a>Crear</a></li>
 </ol>
 @endsection
@@ -41,7 +41,7 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input class="form-control" type="text" placeholder="Descripción dl nivel" name="descripcion">
+                        <input class="form-control" type="text" placeholder="Descripción del nivel" name="descripcion">
                     </div>
                 </div>
                 <div class="col-md-12" style="margin-top: 20px !important">

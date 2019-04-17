@@ -56,10 +56,10 @@ class EtniaController extends Controller {
             }
             $aud->detalles = $str;
             $aud->save();
-            flash("La Etnia <strong>" . $etnia->nombre . "</strong> fue almacenada de forma exitosa!")->success();
+            flash("La Étnia <strong>" . $etnia->nombre . "</strong> fue almacenada de forma exitosa!")->success();
             return redirect()->route('etnia.index');
         } else {
-            flash("La Etnia <strong>" . $etnia->nombre . "</strong> no pudo ser almacenada. Error: " . $result)->error();
+            flash("La Étnia <strong>" . $etnia->nombre . "</strong> no pudo ser almacenada. Error: " . $result)->error();
             return redirect()->route('etnia.index');
         }
     }
@@ -119,10 +119,10 @@ class EtniaController extends Controller {
             }
             $aud->detalles = $str . " - " . $str2;
             $aud->save();
-            flash("La Etnia <strong>" . $etnia->nombre . "</strong> fue modificada de forma exitosa!")->success();
+            flash("La Étnia <strong>" . $etnia->nombre . "</strong> fue modificada de forma exitosa!")->success();
             return redirect()->route('etnia.index');
         } else {
-            flash("La Etnia <strong>" . $etnia->nombre . "</strong> no pudo ser modificada. Error: " . $result)->error();
+            flash("La Étnia <strong>" . $etnia->nombre . "</strong> no pudo ser modificada. Error: " . $result)->error();
             return redirect()->route('etnia.index');
         }
     }
@@ -151,10 +151,10 @@ class EtniaController extends Controller {
             }
             $aud->detalles = $str;
             $aud->save();
-            flash("La Etnia <strong>" . $etnia->nombre . "</strong> fue eliminada de forma exitosa!")->success();
+            flash("La Étnia <strong>" . $etnia->nombre . "</strong> fue eliminada de forma exitosa!")->success();
             return redirect()->route('etnia.index');
         } else {
-            flash("La Etnia <strong>" . $etnia->nombre . "</strong> no pudo ser eliminada. Error: " . $result)->error();
+            flash("La Étnia <strong>" . $etnia->nombre . "</strong> no pudo ser eliminada. Error: " . $result)->error();
             return redirect()->route('etnia.index');
         }
 //        }

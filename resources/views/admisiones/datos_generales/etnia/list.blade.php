@@ -8,17 +8,17 @@
     <li><a href="{{route('home')}}"><i class="fa fa-home"></i> Inicio</a></li>
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-users"></i> Admisiones</a></li>
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-cogs"></i> Datos Básicos</a></li>
-    <li class="active"><a>Etnias</a></li>
+    <li class="active"><a>Étnias</a></li>
 </ol>
 @endsection
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">LISTADO DE ETNIAS</h3>
+        <h3 class="box-title">LISTADO DE ÉTNIAS</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>
-            <a href="{{route('etnia.create')}}" class="btn btn-box-tool" data-toggle="tooltip" data-original-title="Agregar Etnia">
+            <a href="{{route('etnia.create')}}" class="btn btn-box-tool" data-toggle="tooltip" data-original-title="Agregar Étnia">
                 <i class="fa fa-plus-circle"></i></a>
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
                 <i class="fa fa-minus"></i></button>
@@ -46,8 +46,8 @@
                         <td>{{$etnia->created_at}}</td>
                         <td>{{$etnia->updated_at}}</td>
                         <td>
-                            <a href="{{route('etnia.edit',$etnia->id)}}" style="margin-left: 10px;" data-toggle="tooltip" title="Editar Etnia" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
-                            <a href="{{route('etnia.delete',$etnia->id)}}" style="color: red; margin-left: 10px;" data-toggle="tooltip" title="Eliminar Etnia" style="margin-left: 10px;"><i class="fa fa-trash-o"></i></a>
+                            <a href="{{route('etnia.edit',$etnia->id)}}" style="margin-left: 10px;" data-toggle="tooltip" title="Editar Étnia" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
+                            <a href="{{route('etnia.delete',$etnia->id)}}" style="color: red; margin-left: 10px;" data-toggle="tooltip" title="Eliminar Étnia" style="margin-left: 10px;"><i class="fa fa-trash-o"></i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -65,7 +65,7 @@
                 <h4 class="modal-title">Información de Ayuda</h4>
             </div>
             <div class="modal-body">
-                <p>Gestione los diferentes tipos de etnias que existen en colombia.</p>
+                <p>Gestione los diferentes tipos de étnias que existen en colombia.</p>
             </div>
             <div class="modal-footer" style="background-color: #d2d6de !important; opacity: .65;">
                 <button type="button"  class="btn btn-block btn-danger btn-flat pull-right" data-dismiss="modal"> <i class="fa fa-reply"></i> Regresar</button>
