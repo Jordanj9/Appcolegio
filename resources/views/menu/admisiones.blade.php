@@ -37,57 +37,70 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
                         <div class="row">
-                            <!--                        @if(session()->exists('PAG_MODULOS'))-->
+                            @if(session()->exists('PAG_ADMISIONES-PAIS'))
                             <div class="col-md-3">
                                 <a href="{{route('pais.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> PAÍSES</a>
                             </div>
-                            <!--                        @endif-->
-                            <!--                        @if(session()->exists('PAG_PAGINAS'))-->
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-ESTADO'))
                             <div class="col-md-5">
                                 <a href="{{route('estado.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> DEPARTAMENTOS, ESTADOS Ó PROVINCIAS</a>
                             </div>
-                            <!--                        @endif-->
-                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-CIUDAD'))
                             <div class="col-md-4">
                                 <a href="{{route('ciudad.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> CIUDADES</a>
                             </div>
-                            <!--                        @endif-->
-                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-TIPODOC'))
                             <div class="col-md-4">
                                 <a href="{{route('tipodoc.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> TIPOS DE DOCUMENTOS</a>
                             </div>
-                            <!--                        @endif-->
-                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-SEXO'))
                             <div class="col-md-4">
                                 <a href="{{route('sexo.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> SEXO</a>
                             </div>
-                            <!--                        @endif-->
-                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-ENTIDAD-SALUD'))
                             <div class="col-md-4">
                                 <a href="{{route('entidadsalud.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> ENTIDADES DE SALUD</a>
                             </div>
-                            <!--                        @endif-->
-                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-ETNIAS'))
                             <div class="col-md-4">
                                 <a href="{{route('etnia.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> ETNIAS</a>
                             </div>
-                            <!--                        @endif-->
-                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-ESTRATOS'))
                             <div class="col-md-4">
                                 <a href="{{route('estrato.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> NIVEL SOCIOECONOMICO</a>
                             </div>
-                            <!--                        @endif-->
+                            @endif
                         </div>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2">
-                        The European languages are members of the same family. Their separate existence is a myth.
-                        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                        in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                        new common language would be desirable: one could refuse to pay expensive translators. To
-                        achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                        words. If several languages coalesce, the grammar of the resulting language is more simple
-                        and regular than that of the individual languages.
+                        @if(session()->exists('PAG_ADMISIONES-OCUPACIONES'))
+                        <div class="col-md-4">
+                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> NIVEL SOCIOECONOMICO</a>
+                        </div>
+                        @endif
+                        @if(session()->exists('PAG_ADMISIONES-PERIODOS-ACADEMICOS'))
+                        <div class="col-md-4">
+                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> NIVEL SOCIOECONOMICO</a>
+                        </div>
+                        @endif
+                        @if(session()->exists('PAG_ADMISIONES-GRADOS-ACADEMICOS'))
+                        <div class="col-md-4">
+                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> NIVEL SOCIOECONOMICO</a>
+                        </div>
+                        @endif
+                        @if(session()->exists('PAG_ADMISIONES-CON-QUIEN-VIVE'))
+                        <div class="col-md-4">
+                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> NIVEL SOCIOECONOMICO</a>
+                        </div>
+                        @endif
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_3">
