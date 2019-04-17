@@ -72,6 +72,11 @@
                                 <a href="{{route('etnia.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> ETNIAS</a>
                             </div>
                             <!--                        @endif-->
+                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            <div class="col-md-4">
+                                <a href="{{route('estrato.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> NIVEL SOCIOECONOMICO</a>
+                            </div>
+                            <!--                        @endif-->
                         </div>
                     </div>
                     <!-- /.tab-pane -->

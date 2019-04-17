@@ -78,4 +78,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
     //ETNIA
     Route::resource('etnia', 'EtniaController');
     Route::get('etnia/{id}/delete', 'EtniaController@destroy')->name('etnia.delete');
+    //ESTRATO
+    Route::resource('estrato', 'EstratoController');
+    Route::get('estrato/{id}/delete', 'EstratoController@destroy')->name('estrato.delete');
 });
