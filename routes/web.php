@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'usuarios'], function() {
 
 //GRUPO DE RUTAS PARA LOS PROCESOs DE ADMISIÓN Y SELECCIÓN
 Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
-//PAISES
+    //PAISES
     Route::resource('pais', 'PaisController');
     Route::get('pais/{id}/delete', 'PaisController@destroy')->name('pais.delete');
     Route::get('pais/{id}/estados', 'PaisController@estados')->name('pais.estados');
@@ -66,4 +66,16 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
     Route::resource('ciudad', 'CiudadController');
     Route::get('ciudad/{id}/delete', 'CiudadController@destroy')->name('ciudad.delete');
     Route::get('ciudad/{id}/sectores', 'CiudadController@sectores')->name('ciudad.sectores');
+    //TIPO DE DOCUMENTOS
+    Route::resource('tipodoc', 'TipodocController');
+    Route::get('tipodoc/{id}/delete', 'TipodocController@destroy')->name('tipodoc.delete');
+    //SEXO
+    Route::resource('sexo', 'SexoController');
+    Route::get('sexo/{id}/delete', 'SexoController@destroy')->name('sexo.delete');
+    //ENITDAD SALUD
+    Route::resource('entidadsalud', 'EntidadsaludController');
+    Route::get('entidadsalud/{id}/delete', 'EntidadsaludController@destroy')->name('entidadsalud.delete');
+    //ETNIA
+    Route::resource('etnia', 'EtniaController');
+    Route::get('etnia/{id}/delete', 'EtniaController@destroy')->name('etnia.delete');
 });

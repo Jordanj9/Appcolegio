@@ -7,14 +7,14 @@
 <ol class="breadcrumb">
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-users"></i> Admisiones</a></li>
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-cogs"></i> Datos Básicos</a></li>
-    <li><a href="{{route('ciudad.index')}}"><i class="fa fa-globe"></i> Ciudades</a></li>
+    <li><a href="{{route('entidadsalud.index')}}"><i class="fa fa-plus-square"></i> Entidades de Salud</a></li>
     <li class="active"><a>Crear</a></li>
 </ol>
 @endsection
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">CREAR NUEVA CIUDAD</h3>
+        <h3 class="box-title">CREAR NUEVA ENTIDAD</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>
@@ -30,56 +30,55 @@
             @endcomponent
         </div>
         <div class="col-md-12">
-            <form class="form" role='form' method="POST" action="{{route('ciudad.store')}}">
+            <form class="form" role='form' method="POST" action="{{route('entidadsalud.store')}}">
                 @csrf
-                <div class="col-md-8">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Código DANE de la Ciudad</label>
-                        <input class="form-control" type="text" placeholder="Código de la ciudad (en el caso de colombia equivale al código que el DANE asigna a la ciudad)" name="codigo_dane">
+                        <label>Codigo</label>
+                        <input class="form-control" type="text" required="required" name="codigo" placeholder="Codigo de la entidad de salud">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label>Nombre de la Ciudad</label>
-                        <input class="form-control" type="text" required="required" name="nombre">
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="form-group">
-                        <label>Código del Pais</label>
-                        <input class="form-control" type="text" placeholder="Ejemplo: para colombia el código sería COL, abrebiatura de 3 caracteres" required="required" name="codigo_pais">
+                        <label>Nombre</label>
+                        <input class="form-control" type="text" placeholder="Nombre de la entidad" name="nombre">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label>Seleccione Situación de la Ciudad</label>
-                        <select class="form-control" required="required"name="estado_dpto">
+                        <label>Acronimo</label>
+                        <input class="form-control" type="text" placeholder="Abreviatura" name="acronimo">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Tipo</label>
+                        <select class="form-control" required="required" name="tipoentidad">
                             <option>-- Seleccione una opción --</option>
-                            <option value="0">INACTIVA</option>
-                            <option value="1">ACTIVA</option>
+                            <option value="IPS">IPS</option>
+                            <option value="EPS">EPS</option>
+                            <option value="ARS">ARS</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Nombre del Distrito</label>
-                        <input class="form-control" type="text" placeholder="Nombre del distrito al que pertenece la ciudad" name="distrito">
+                        <label>Sector</label>
+                        <select class="form-control" name="sector">
+                            <option>-- Seleccione una opción --</option>
+                            <option value="MIXTO">MIXTO</option>
+                            <option value="PRIVADO">PRIVADO</option>
+                            <option value="PUBLICO">PUBLICO</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label>Población</label>
-                        <input class="form-control" type="number"  name="poblacion">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Seleccione el Departamento</label>
-                        <select class="form-control"  style="width: 100%;" name="estado_id" required="required">
-                            <option value="0">-- Seleccione una opción --</option>
-                            @foreach($estados as $key=>$value)
-                            <option value="{{$key}}">{{$value}}</option>
-                            @endforeach
+                        <label>Estado Registro</label>
+                        <select class="form-control" required="required" name="estado">
+                            <option>-- Seleccione una opción --</option>
+                            <option value="1">ACTIVO</option>
+                            <option value="0">INACTIVO</option>
                         </select>
                     </div>
                 </div>
@@ -87,7 +86,7 @@
                     <div class="form-group">
                         <button class="btn btn-success icon-btn pull-left" type="submit"><i class="fa fa-fw fa-lg fa-save"></i>Guardar</button>
                         <button class="btn btn-info icon-btn pull-left" type="reset"><i class="fa fa-fw fa-lg fa-trash-o"></i>Limpiar</button>
-                        <a class="btn btn-danger icon-btn pull-left" href="{{route('ciudad.index')}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+                        <a class="btn btn-danger icon-btn pull-left" href="{{route('entidadsalud.index')}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
                     </div>
                 </div>
             </form>
@@ -103,7 +102,7 @@
                 <h4 class="modal-title">Información de Ayuda</h4>
             </div>
             <div class="modal-body">
-                <p>Agregue nuevas ciudades. Si el estado al cual pertenece la ciudad que va a agregar no aparece en la lista de estados diríjase al módulo de gestión de estados y agréguelo, si no conoce el estado seleccione la opción OTRO. Las ciudades son usadas para funciones de admisiones y otros.</p>
+                <p>Esta funcionalidad permite al usuario diligenciar la información referente a las entidades de salud. Incluye una nueva entidad de salud.</p>
             </div>
             <div class="modal-footer" style="background-color: #d2d6de !important; opacity: .65;">
                 <button type="button"  class="btn btn-block btn-danger btn-flat pull-right" data-dismiss="modal"> <i class="fa fa-reply"></i> Regresar</button>

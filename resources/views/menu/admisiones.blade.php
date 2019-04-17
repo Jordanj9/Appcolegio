@@ -52,6 +52,26 @@
                                 <a href="{{route('ciudad.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> CIUDADES</a>
                             </div>
                             <!--                        @endif-->
+                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            <div class="col-md-4">
+                                <a href="{{route('tipodoc.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> TIPOS DE DOCUMENTOS</a>
+                            </div>
+                            <!--                        @endif-->
+                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            <div class="col-md-4">
+                                <a href="{{route('sexo.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> SEXO</a>
+                            </div>
+                            <!--                        @endif-->
+                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            <div class="col-md-4">
+                                <a href="{{route('entidadsalud.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> ENTIDADES DE SALUD</a>
+                            </div>
+                            <!--                        @endif-->
+                            <!--                        @if(session()->exists('PAG_GRUPOS-ROLES'))-->
+                            <div class="col-md-4">
+                                <a href="{{route('etnia.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> ETNIAS</a>
+                            </div>
+                            <!--                        @endif-->
                         </div>
                     </div>
                     <!-- /.tab-pane -->
