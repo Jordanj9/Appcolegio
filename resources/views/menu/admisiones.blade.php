@@ -83,22 +83,22 @@
                     <div class="tab-pane" id="tab_2">
                         @if(session()->exists('PAG_ADMISIONES-OCUPACIONES'))
                         <div class="col-md-4">
-                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> NIVEL SOCIOECONOMICO</a>
+                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> OCUPACIONES LABORALES</a>
                         </div>
                         @endif
                         @if(session()->exists('PAG_ADMISIONES-PERIODOS-ACADEMICOS'))
                         <div class="col-md-4">
-                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> NIVEL SOCIOECONOMICO</a>
+                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> PERÍODOS ACADÉMICOS</a>
                         </div>
                         @endif
                         @if(session()->exists('PAG_ADMISIONES-GRADOS-ACADEMICOS'))
                         <div class="col-md-4">
-                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> NIVEL SOCIOECONOMICO</a>
+                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> GRADOS ACADÉMICOS (AÑOS ESCOLARES)</a>
                         </div>
                         @endif
                         @if(session()->exists('PAG_ADMISIONES-CON-QUIEN-VIVE'))
                         <div class="col-md-4">
-                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> NIVEL SOCIOECONOMICO</a>
+                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> ¿CON QUIÉN VIVE?</a>
                         </div>
                         @endif
                     </div>
