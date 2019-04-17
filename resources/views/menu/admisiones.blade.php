@@ -31,23 +31,23 @@
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-cogs"></i> DATOS BÁSICOS</a></li>
-                    <li><a href="#tab_2" data-toggle="tab">Tab 2</a></li>
+                    <li><a href="#tab_2" data-toggle="tab">DATOS DE ADMISIÓN Y MATRÍCULA</a></li>
                     <li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
                         <div class="row">
-                            @if(session()->exists('PAG_ADMISIONES-PAIS'))
+                            @if(session()->exists('PAG_ADMISIONES-PAISES'))
                             <div class="col-md-3">
                                 <a href="{{route('pais.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> PAÍSES</a>
                             </div>
                             @endif
-                            @if(session()->exists('PAG_ADMISIONES-ESTADO'))
+                            @if(session()->exists('PAG_ADMISIONES-ESTADOS'))
                             <div class="col-md-5">
                                 <a href="{{route('estado.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> DEPARTAMENTOS, ESTADOS Ó PROVINCIAS</a>
                             </div>
                             @endif
-                            @if(session()->exists('PAG_ADMISIONES-CIUDAD'))
+                            @if(session()->exists('PAG_ADMISIONES-CIUDADES'))
                             <div class="col-md-4">
                                 <a href="{{route('ciudad.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> CIUDADES</a>
                             </div>
@@ -81,26 +81,28 @@
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_2">
-                        @if(session()->exists('PAG_ADMISIONES-OCUPACIONES'))
-                        <div class="col-md-4">
-                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> OCUPACIONES LABORALES</a>
+                        <div class="row">
+                            @if(session()->exists('PAG_ADMISIONES-OCUPACIONES'))
+                            <div class="col-md-4">
+                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> OCUPACIONES LABORALES</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-PERIODOS-ACADEMICOS'))
+                            <div class="col-md-4">
+                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> PERÍODOS ACADÉMICOS</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-GRADOS-ACADEMICOS'))
+                            <div class="col-md-4">
+                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> GRADOS ACADÉMICOS (AÑOS ESCOLARES)</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-CON-QUIEN-VIVE'))
+                            <div class="col-md-4">
+                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> ¿CON QUIÉN VIVE?</a>
+                            </div>
+                            @endif
                         </div>
-                        @endif
-                        @if(session()->exists('PAG_ADMISIONES-PERIODOS-ACADEMICOS'))
-                        <div class="col-md-4">
-                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> PERÍODOS ACADÉMICOS</a>
-                        </div>
-                        @endif
-                        @if(session()->exists('PAG_ADMISIONES-GRADOS-ACADEMICOS'))
-                        <div class="col-md-4">
-                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> GRADOS ACADÉMICOS (AÑOS ESCOLARES)</a>
-                        </div>
-                        @endif
-                        @if(session()->exists('PAG_ADMISIONES-CON-QUIEN-VIVE'))
-                        <div class="col-md-4">
-                            <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> ¿CON QUIÉN VIVE?</a>
-                        </div>
-                        @endif
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_3">
