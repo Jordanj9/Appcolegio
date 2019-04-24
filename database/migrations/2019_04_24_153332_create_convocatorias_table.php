@@ -25,6 +25,8 @@ class CreateConvocatoriasTable extends Migration {
             $table->foreign('grado_id')->references('id')->on('grados')->onDelete('cascade');
             $table->bigInteger('unidad_id')->unsigned();
             $table->foreign('unidad_id')->references('id')->on('unidads')->onDelete('cascade');
+            $table->bigInteger('jornada_id')->unsigned();
+            $table->foreign('jornada_id')->references('id')->on('jornadas')->onDelete('cascade');
             $table->timestamps();
         });
     }

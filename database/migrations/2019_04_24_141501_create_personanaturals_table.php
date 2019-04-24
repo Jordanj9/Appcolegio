@@ -35,7 +35,7 @@ class CreatePersonanaturalsTable extends Migration {
             $table->foreign('ciudad_id')->references('id')->on('ciudads')->onDelete('cascade');
             $table->integer('estado_id')->unsigned()->nullable();
             $table->foreign('estado_id')->references('id')->on('estados')->onDelete('cascade');
-            $table->bigInteger('pais_id')->unsigned()->nullable();
+            $table->integer('pais_id')->unsigned()->nullable();
             $table->foreign('pais_id')->references('id')->on('pais')->onDelete('cascade');
             $table->bigInteger('persona_id')->unsigned();
             $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');

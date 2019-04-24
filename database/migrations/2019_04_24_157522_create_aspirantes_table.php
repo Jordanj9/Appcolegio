@@ -44,6 +44,10 @@ class CreateAspirantesTable extends Migration {
             $table->foreign('unidad_id')->references('id')->on('unidads')->onDelete('cascade');
             $table->integer('estrato_id')->unsigned();
             $table->foreign('estrato_id')->references('id')->on('estratos')->onDelete('cascade');
+            $table->bigInteger('jornada_id')->unsigned();
+            $table->foreign('jornada_id')->references('id')->on('jornadas')->onDelete('cascade');
+            $table->bigInteger('convocatoria_id')->unsigned();
+            $table->foreign('convocatoria_id')->references('id')->on('convocatorias')->onDelete('cascade');
             $table->timestamps();
         });
     }
