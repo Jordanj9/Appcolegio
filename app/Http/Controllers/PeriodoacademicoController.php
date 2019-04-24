@@ -39,9 +39,15 @@ class PeriodoacademicoController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(PeriodoacademicoRequest $request) {
-        $periodo = new Periodo($request->all());
+        $periodo = new Periodoacademico($request->all());
         foreach ($periodo->attributesToArray() as $key => $value) {
             $periodo->$key = strtoupper($value);
+        }
+        if(!isset($request->fecha_inicio)){
+           $periodo->fecha_inicio = null; 
+        }
+        if(!isset($request->fecha_fin)){
+           $periodo->fecha_fin = null; 
         }
         $u = Auth::user();
         $periodo->user_change = $u->identificacion;
@@ -56,11 +62,11 @@ class PeriodoacademicoController extends Controller {
             }
             $aud->detalles = $str;
             $aud->save();
-            flash("El Período <strong>" . $periodo->nombre . "</strong> fue almacenado de forma exitosa!")->success();
-            return redirect()->route('periodo.index');
+            flash("El Período <strong>" . $periodo->etiqueta." - ".$periodo->anio . "</strong> fue almacenado de forma exitosa!")->success();
+            return redirect()->route('periodoacademico.index');
         } else {
-            flash("El Período <strong>" . $periodo->nombre . "</strong> no pudo ser almacenado. Error: " . $result)->error();
-            return redirect()->route('periodo.index');
+            flash("El Período <strong>" . $periodo->etiqueta." - ".$periodo->anio . "</strong> no pudo ser almacenado. Error: " . $result)->error();
+            return redirect()->route('periodoacademico.index');
         }
     }
 
@@ -119,11 +125,11 @@ class PeriodoacademicoController extends Controller {
             }
             $aud->detalles = $str . " - " . $str2;
             $aud->save();
-            flash("El Período <strong>" . $periodo->nombre . "</strong> fue modificado de forma exitosa!")->success();
-            return redirect()->route('periodo.index');
+            flash("El Período <strong>" . $periodo->etiqueta." - ".$periodo->anio . "</strong> fue modificado de forma exitosa!")->success();
+            return redirect()->route('periodoacademico.index');
         } else {
-            flash("El Período <strong>" . $periodo->nombre . "</strong> no pudo ser modificado. Error: " . $result)->error();
-            return redirect()->route('periodo.index');
+            flash("El Período <strong>" . $periodo->etiqueta." - ".$periodo->anio . "</strong> no pudo ser modificado. Error: " . $result)->error();
+            return redirect()->route('periodoacademico.index');
         }
     }
 
@@ -151,11 +157,11 @@ class PeriodoacademicoController extends Controller {
             }
             $aud->detalles = $str;
             $aud->save();
-            flash("El Período <strong>" . $periodo->descripcion . "</strong> fue eliminado de forma exitosa!")->success();
-            return redirect()->route('periodo.index');
+            flash("El Período <strong>" . $periodo->etiqueta." - ".$periodo->anio . "</strong> fue eliminado de forma exitosa!")->success();
+            return redirect()->route('periodoacademico.index');
         } else {
-            flash("El Período <strong>" . $periodo->descripcion . "</strong> no pudo ser eliminado. Error: " . $result)->error();
-            return redirect()->route('periodo.index');
+            flash("El Período <strong>" . $periodo->etiqueta." - ".$periodo->anio . "</strong> no pudo ser eliminado. Error: " . $result)->error();
+            return redirect()->route('periodoacademico.index');
         }
 //        }
     }

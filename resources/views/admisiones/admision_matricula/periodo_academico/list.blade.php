@@ -18,7 +18,7 @@
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>
-            <a href="{{route('periodo.create')}}" class="btn btn-box-tool" data-toggle="tooltip" data-original-title="Agregar Período">
+            <a href="{{route('periodoacademico.create')}}" class="btn btn-box-tool" data-toggle="tooltip" data-original-title="Agregar Período">
                 <i class="fa fa-plus-circle"></i></a>
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
                 <i class="fa fa-minus"></i></button>
@@ -45,13 +45,13 @@
                     <tr>
                         <td>{{$periodo->etiqueta}}</td>
                         <td>{{$periodo->anio}}</td>
-                        <td>{{$periodo->fechainicio}}</td>
-                        <td>{{$periodo->fechafin}}</td>
+                        <td>{{$periodo->fecha_inicio}}</td>
+                        <td>{{$periodo->fecha_fin}}</td>
                         <td>{{$periodo->created_at}}</td>
                         <td>{{$periodo->updated_at}}</td>
                         <td>
-                            <a href="{{route('periodo.edit',$periodo->id)}}" style="margin-left: 10px;" data-toggle="tooltip" title="Editar Período" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
-                            <a href="{{route('periodo.delete',$periodo->id)}}" style="color: red; margin-left: 10px;" data-toggle="tooltip" title="Eliminar Período" style="margin-left: 10px;"><i class="fa fa-trash-o"></i></a>
+                            <a href="{{route('periodoacademico.edit',$periodo->id)}}" style="margin-left: 10px;" data-toggle="tooltip" title="Editar Período" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
+                            <a href="{{route('periodoacademico.delete',$periodo->id)}}" style="color: red; margin-left: 10px;" data-toggle="tooltip" title="Eliminar Período" style="margin-left: 10px;"><i class="fa fa-trash-o"></i></a>
                         </td>
                     </tr>
                     @endforeach
