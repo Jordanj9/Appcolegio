@@ -32,7 +32,7 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-cogs"></i> DATOS BÁSICOS</a></li>
                     <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-list-ul"></i> DATOS DE ADMISIÓN Y MATRÍCULA</a></li>
-                    <li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>
+                    <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-calendar"></i> CALENDARIO, PROCESOS Y CONVOCATORIA</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
@@ -87,11 +87,6 @@
                                 <a href="{{route('ocupacion.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> OCUPACIONES LABORALES</a>
                             </div>
                             @endif
-                            @if(session()->exists('PAG_ADMISIONES-PERIODOS-ACADEMICOS'))
-                            <div class="col-md-4">
-                                <a href="{{route('periodoacademico.index')}}"class="btn btn-success btn-raised btn-block btn-flat"> PERÍODOS ACADÉMICOS</a>
-                            </div>
-                            @endif
                             @if(session()->exists('PAG_ADMISIONES-GRADOS-ACADEMICOS'))
                             <div class="col-md-4">
                                 <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> GRADOS ACADÉMICOS (AÑOS ESCOLARES)</a>
@@ -102,17 +97,47 @@
                                 <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> ¿CON QUIÉN VIVE?</a>
                             </div>
                             @endif
+                            @if(session()->exists('PAG_ADMISIONES-RANGO-SISBEN'))
+                            <div class="col-md-4">
+                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Rango Sisben</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-SITUACION-ANIO-ANTERIOR'))
+                            <div class="col-md-4">
+                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Situación Año Anterior</a>
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <!-- /.tab-pane -->
                     <div class="tab-pane" id="tab_3">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                        like Aldus PageMaker including versions of Lorem Ipsum.
+                        <div class="row">
+                            @if(session()->exists('PAG_ADMISIONES-PERIODOS-ACADEMICOS'))
+                            <div class="col-md-4">
+                                <a href="{{route('periodoacademico.index')}}"class="btn btn-success btn-raised btn-block btn-flat"> PERÍODOS ACADÉMICOS</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-UNIDAD'))
+                            <div class="col-md-4">
+                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Unidades</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-JORNADA'))
+                            <div class="col-md-4">
+                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Jornadas</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-PROGRAMAR-PERIODO'))
+                            <div class="col-md-4">
+                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Programar Período Académico</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-CONVOCATORIA'))
+                            <div class="col-md-4">
+                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Convocatoria</a>
+                            </div>
+                            @endif
+                        </div>
                     </div>
                     <!-- /.tab-pane -->
                 </div>
