@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGradosTable extends Migration {
+class CreateUnidadsTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,10 +12,12 @@ class CreateGradosTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('grados', function (Blueprint $table) {
+        Schema::create('unidads', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('etiqueta');
+            $table->string('nombre');
             $table->string('descripcion')->nullable();
+            $table->bigInteger('ciudad_id')->unsigned();
+            $table->foreign('ciudad_id')->references('id')->on('ciudads')->onDelete('cascade');
             $table->string('user_change', 100);
             $table->timestamps();
         });
@@ -27,7 +29,7 @@ class CreateGradosTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('grados');
+        Schema::dropIfExists('unidads');
     }
 
 }
