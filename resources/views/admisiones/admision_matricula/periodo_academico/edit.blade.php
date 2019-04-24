@@ -9,7 +9,7 @@
     <li><a href="{{route('home')}}"><i class="fa fa-home"></i> Inicio</a></li>
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-users"></i> Admisiones</a></li>
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-list-ul"></i> Datos de Admisión y Matrícula</a></li>
-    <li><a href="{{route('periodoacademico.index')}}"><i class="fa fa-suitcase"></i> Períodos Académicos</a></li>
+    <li><a href="{{route('periodoacademico.index')}}"><i class="fa fa-calendar-check-o"></i> Períodos Académicos</a></li>
     <li class="active"><a>Editar</a></li>
 </ol>
 @endsection

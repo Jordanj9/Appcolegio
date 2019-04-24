@@ -87,4 +87,10 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
     //PERIODO ACADEMICO
     Route::resource('periodoacademico', 'PeriodoacademicoController');
     Route::get('periodoacademico/{id}/delete', 'PeriodoacademicoController@destroy')->name('periodoacademico.delete');
+    //GRADOS(AÑOS ESCOLARES)
+    Route::resource('gradoacademico', 'GradoController');
+    Route::get('gradoacademico/{id}/delete', 'GradoController@destroy')->name('gradoacademico.delete');
+    //CON QUIEN VIVE    
+    Route::resource('conquienvive', 'ConquienviveController');
+    Route::get('conquienvive/{id}/delete', 'ConquienviveController@destroy')->name('conquienvive.delete');
 });

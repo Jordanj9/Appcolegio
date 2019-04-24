@@ -89,12 +89,12 @@
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-GRADOS-ACADEMICOS'))
                             <div class="col-md-4">
-                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> GRADOS ACADÉMICOS (AÑOS ESCOLARES)</a>
+                                <a href="{{route('gradoacademico.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> GRADOS ACADÉMICOS (AÑOS ESCOLARES)</a>
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-CON-QUIEN-VIVE'))
                             <div class="col-md-4">
-                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> ¿CON QUIÉN VIVE?</a>
+                                <a href="{{route('conquienvive.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> ¿CON QUIÉN VIVE?</a>
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-RANGO-SISBEN'))
