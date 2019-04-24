@@ -33,7 +33,7 @@ class CreatePadresaspirantesTable extends Migration {
             $table->foreign('sexo_id')->references('id')->on('sexos')->onDelete('cascade');
             $table->integer('tipodoc_id')->unsigned();
             $table->foreign('tipodoc_id')->references('id')->on('tipodocs')->onDelete('cascade');
-            $table->integer('ocupacion_id')->unsigned()->nullable();
+            $table->bigInteger('ocupacion_id')->unsigned()->nullable();
             $table->foreign('ocupacion_id')->references('id')->on('ocupacions')->onDelete('cascade');
             $table->bigInteger('aspirante_id')->unsigned();
             $table->foreign('aspirante_id')->references('id')->on('aspirantes')->onDelete('cascade');
