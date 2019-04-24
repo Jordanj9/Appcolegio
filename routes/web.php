@@ -52,7 +52,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'usuarios'], function() {
 });
 
 
-//GRUPO DE RUTAS PARA LOS PROCESOs DE ADMISIÓN Y SELECCIÓN
+//GRUPO DE RUTAS PARA LOS PROCESOS DE ADMISIÓN Y SELECCIÓN
 Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
     //PAISES
     Route::resource('pais', 'PaisController');
@@ -81,4 +81,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
     //ESTRATO
     Route::resource('estrato', 'EstratoController');
     Route::get('estrato/{id}/delete', 'EstratoController@destroy')->name('estrato.delete');
+    //OCUPACION LABORAL
+    Route::resource('ocupacion', 'OcupacionController');
+    Route::get('ocupacion/{id}/delete', 'OcupacionController@destroy')->name('ocupacion.delete');
 });

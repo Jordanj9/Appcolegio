@@ -31,7 +31,7 @@
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-cogs"></i> DATOS BÁSICOS</a></li>
-                    <li><a href="#tab_2" data-toggle="tab">DATOS DE ADMISIÓN Y MATRÍCULA</a></li>
+                    <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-list-ul"></i> DATOS DE ADMISIÓN Y MATRÍCULA</a></li>
                     <li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>
                 </ul>
                 <div class="tab-content">
@@ -84,7 +84,7 @@
                         <div class="row">
                             @if(session()->exists('PAG_ADMISIONES-OCUPACIONES'))
                             <div class="col-md-4">
-                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> OCUPACIONES LABORALES</a>
+                                <a href="{{route('ocupacion.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> OCUPACIONES LABORALES</a>
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-PERIODOS-ACADEMICOS'))
