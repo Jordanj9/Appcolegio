@@ -84,4 +84,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
     //OCUPACION LABORAL
     Route::resource('ocupacion', 'OcupacionController');
     Route::get('ocupacion/{id}/delete', 'OcupacionController@destroy')->name('ocupacion.delete');
+    //PERIODO ACADEMICO
+    Route::resource('periodoacademico', 'PeriodoacademicoController');
+    Route::get('periodoacademico/{id}/delete', 'PeriodoacademicoController@destroy')->name('periodoacademico.delete');
 });

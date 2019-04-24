@@ -89,7 +89,7 @@
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-PERIODOS-ACADEMICOS'))
                             <div class="col-md-4">
-                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> PERÍODOS ACADÉMICOS</a>
+                                <a href="{{route('periodoacademico.index')}}"class="btn btn-success btn-raised btn-block btn-flat"> PERÍODOS ACADÉMICOS</a>
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-GRADOS-ACADEMICOS'))

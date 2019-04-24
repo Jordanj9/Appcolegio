@@ -1,3 +1,4 @@
+
 @extends('layouts.admin')
 @section('breadcrumb')
 <h1>
@@ -8,18 +9,17 @@
     <li><a href="{{route('home')}}"><i class="fa fa-home"></i> Inicio</a></li>
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-users"></i> Admisiones</a></li>
     <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-list-ul"></i> Datos de Admisión y Matrícula</a></li>
-    <li class="active"><a>Ocupaciones</a></li>
+    <li><a href="{{route('periodo.index')}}"><i class="fa fa-suitcase"></i> Períodos Académicos</a></li>
+    <li class="active"><a>Editar</a></li>
 </ol>
 @endsection
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">LISTADO DE OCUPACIONES</h3>
+        <h3 class="box-title">EDITAR PERÍODO ACADÉMICO</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>
-            <a href="{{route('ocupacion.create')}}" class="btn btn-box-tool" data-toggle="tooltip" data-original-title="Agregar Ocupación">
-                <i class="fa fa-plus-circle"></i></a>
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
                 <i class="fa fa-minus"></i></button>
             <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar">
@@ -27,32 +27,28 @@
         </div>
     </div>
     <div class="box-body">
-        <div class="table-responsive">
-            <table id="example1" class="table table-bordered table-striped table-hover">
-                <thead>
-                    <tr class="info">
-                        <th>CODIGO</th>
-                        <th>DESCRIPCIÓN</th>
-                        <th>CREADO</th>
-                        <th>MODIFICADO</th>
-                        <th>ACCIONES</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($ocupaciones as $ocupacion)
-                    <tr>
-                        <td>{{$ocupacion->codigo}}</td>
-                        <td>{{$ocupacion->descripcion}}</td>
-                        <td>{{$ocupacion->created_at}}</td>
-                        <td>{{$ocupacion->updated_at}}</td>
-                        <td>
-                            <a href="{{route('ocupacion.edit',$ocupacion->id)}}" style="margin-left: 10px;" data-toggle="tooltip" title="Editar Ocupación" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
-                            <a href="{{route('ocupacion.delete',$ocupacion->id)}}" style="color: red; margin-left: 10px;" data-toggle="tooltip" title="Eliminar Ocupación" style="margin-left: 10px;"><i class="fa fa-trash-o"></i></a>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <div class="col-md-12">
+            @component('layouts.errors')
+            @endcomponent
+        </div>
+        <div class="col-md-12">
+            <form class="form" role='form' method="POST" action="{{route('periodo.update',$periodo->id)}}">
+                @csrf
+                <input name="_method" type="hidden" value="PUT" />
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Año</label>
+                        <input class="form-control" type="text" placeholder="Año" name="descripcion" value="{{$periodo->descripcion}}">
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin-top: 20px !important">
+                    <div class="form-group">
+                        <button class="btn btn-success icon-btn pull-left" type="submit"><i class="fa fa-fw fa-lg fa-save"></i>Guardar</button>
+                        <button class="btn btn-info icon-btn pull-left" type="reset"><i class="fa fa-fw fa-lg fa-trash-o"></i>Limpiar</button>
+                        <a class="btn btn-danger icon-btn pull-left" href="{{route('periodo.index')}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -65,7 +61,7 @@
                 <h4 class="modal-title">Información de Ayuda</h4>
             </div>
             <div class="modal-body">
-                <p>Gestione los diferentes tipos de ocupaciones laborales.</p>
+                <p>Gestione los períodos. Edite los datos del periodo seleccionada.</p>
             </div>
             <div class="modal-footer" style="background-color: #d2d6de !important; opacity: .65;">
                 <button type="button"  class="btn btn-block btn-danger btn-flat pull-right" data-dismiss="modal"> <i class="fa fa-reply"></i> Regresar</button>
@@ -80,7 +76,7 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#example1').DataTable();
+
     });
 </script>
 @endsection
