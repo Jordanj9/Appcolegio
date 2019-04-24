@@ -119,10 +119,10 @@ class OcupacionController extends Controller {
             }
             $aud->detalles = $str . " - " . $str2;
             $aud->save();
-            flash("La Ocupación <strong>" . $ocupacion->nombre . "</strong> fue modificada de forma exitosa!")->success();
+            flash("La Ocupación <strong>" . $ocupacion->descripcion . "</strong> fue modificada de forma exitosa!")->success();
             return redirect()->route('ocupacion.index');
         } else {
-            flash("La Ocupación <strong>" . $ocupacion->nombre . "</strong> no pudo ser modificada. Error: " . $result)->error();
+            flash("La Ocupación <strong>" . $ocupacion->descripcion . "</strong> no pudo ser modificada. Error: " . $result)->error();
             return redirect()->route('ocupacion.index');
         }
     }
@@ -138,14 +138,14 @@ class OcupacionController extends Controller {
 //            flash("El Grupo de usuario <strong>" . $grupo->nombre . "</strong> no pudo ser eliminado porque tiene permisos o usuarios asociados.")->warning();
 //            return redirect()->route('grupousuario.index');
 //        } else {
-        $ocupacion = Docente::find($id);
+        $ocupacion = Ocupacion::find($id);
         $result = $ocupacion->delete();
         if ($result) {
             $aud = new Auditoriaadmision();
             $u = Auth::user();
             $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
             $aud->operacion = "ELIMINAR";
-            $str = "ELIMINACIÓN DE DOCENTE. DATOS ELIMINADOS: ";
+            $str = "ELIMINACIÓN DE OCUPACIÓN. DATOS ELIMINADOS: ";
             foreach ($ocupacion->attributesToArray() as $key => $value) {
                 $str = $str . ", " . $key . ": " . $value;
             }
