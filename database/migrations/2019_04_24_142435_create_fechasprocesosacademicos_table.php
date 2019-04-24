@@ -23,6 +23,8 @@ class CreateFechasprocesosacademicosTable extends Migration {
             $table->foreign('periodoacademico_id')->references('id')->on('periodoacademicos')->onDelete('cascade');
             $table->bigInteger('unidad_id')->unsigned();
             $table->foreign('unidad_id')->references('id')->on('unidads')->onDelete('cascade');
+            $table->bigInteger('jornada_id')->unsigned();
+            $table->foreign('jornada_id')->references('id')->on('jornadas')->onDelete('cascade');
             $table->timestamps();
         });
     }
