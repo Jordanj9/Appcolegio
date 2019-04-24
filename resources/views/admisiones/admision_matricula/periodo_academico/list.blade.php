@@ -31,8 +31,10 @@
             <table id="example1" class="table table-bordered table-striped table-hover">
                 <thead>
                     <tr class="info">
-                        <th>ID</th>
+                        <th>ETIQUETA</th>
                         <th>AÑO</th>
+                        <th>FECHA INICIO</th>
+                        <th>FECHA FIN</th>
                         <th>CREADO</th>
                         <th>MODIFICADO</th>
                         <th>ACCIONES</th>
@@ -41,8 +43,10 @@
                 <tbody>
                     @foreach($periodos as $periodo)
                     <tr>
-                        <td>{{$periodo->id}}</td>
-                        <td>{{$periodo->descripcion}}</td>
+                        <td>{{$periodo->etiqueta}}</td>
+                        <td>{{$periodo->anio}}</td>
+                        <td>{{$periodo->fechainicio}}</td>
+                        <td>{{$periodo->fechafin}}</td>
                         <td>{{$periodo->created_at}}</td>
                         <td>{{$periodo->updated_at}}</td>
                         <td>

@@ -33,10 +33,28 @@
         <div class="col-md-12">
             <form class="form" role='form' method="POST" action="{{route('periodo.store')}}">
                 @csrf
-                <div class="col-md-8">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Etiqueta</label>
+                        <input class="form-control" type="text" placeholder="Ej: Año lectivo, período, período anual, etc." required="required" name="etiqueta">
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Año</label>
-                        <input class="form-control" type="text" placeholder="Año" name="descripcion">
+                        <input class="form-control" type="number" max="4" placeholder="Año" required="required" name="anio">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Fecha Inicio</label>
+                        <input class="form-control" type="date" placeholder="Fecha de inicio del período" required="required" name="anio">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Fecha Fin</label>
+                        <input class="form-control" type="date" placeholder="Fecha fin del período" name="anio">
                     </div>
                 </div>
                 <div class="col-md-12" style="margin-top: 20px !important">

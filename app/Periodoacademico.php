@@ -12,7 +12,7 @@ class Periodoacademico extends Model {
      * @var array
      */
     protected $fillable = [
-        'id', 'nombre', 'user_change', 'created_at', 'updated_at'
+        'id', 'etiqueta', 'anio', 'fechainicio', 'fechafin', 'user_change', 'created_at', 'updated_at'
     ];
 
     /**
