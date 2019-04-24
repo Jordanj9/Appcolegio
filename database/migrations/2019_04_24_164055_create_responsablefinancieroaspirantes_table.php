@@ -21,7 +21,7 @@ class CreateResponsablefinancieroaspirantesTable extends Migration {
             $table->string('jefe_inmediato')->nullable();
             $table->string('telefono_jefe')->nullable();
             $table->text('descripcion_trabajador_independiente')->nullable();
-            $table->integer('ocupacion_id')->unsigned()->nullable();
+            $table->bigInteger('ocupacion_id')->unsigned()->nullable();
             $table->foreign('ocupacion_id')->references('id')->on('ocupacions')->onDelete('cascade');
             $table->bigInteger('personanatural_id')->unsigned();
             $table->foreign('personanatural_id')->references('id')->on('personanaturals')->onDelete('cascade');
