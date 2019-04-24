@@ -13,8 +13,11 @@ class CreatePeriodoacademicosTable extends Migration {
      */
     public function up() {
         Schema::create('periodoacademicos', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('nombre');
+            $table->bigIncrements('id');
+            $table->string(' etiqueta ');
+            $table->integer(' anio ');
+            $table->date(' fecha_inicio ')->nullable();
+            $table->date(' fecha_fin ')->nullable();
             $table->string('user_change', 100);
             $table->timestamps();
         });
