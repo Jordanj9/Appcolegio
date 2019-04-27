@@ -24,4 +24,8 @@ class Periodoacademico extends Model {
             //
     ];
 
+    public function periodounidad() {
+        return $this->hasMany('App\Periodounidad');
+    }
+
 }

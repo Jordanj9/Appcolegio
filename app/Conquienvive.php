@@ -12,7 +12,7 @@ class Conquienvive extends Model {
      * @var array
      */
     protected $fillable = [
-        'id', 'etiqueta', 'descripcion', 'user_change', 'created_at', 'updated_at'
+        'id', 'descripcion', 'user_change', 'created_at', 'updated_at'
     ];
 
     /**

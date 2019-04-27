@@ -99,12 +99,12 @@
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-RANGO-SISBEN'))
                             <div class="col-md-4">
-                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Rango Sisben</a>
+                                <a  href="{{route('rangosisben.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> Rango Sisben</a>
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-SITUACION-ANIO-ANTERIOR'))
                             <div class="col-md-4">
-                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Situación Año Anterior</a>
+                                <a href="{{route('situacionanterior.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> Situación Año Anterior</a>
                             </div>
                             @endif
                         </div>
@@ -114,22 +114,22 @@
                         <div class="row">
                             @if(session()->exists('PAG_ADMISIONES-PERIODOS-ACADEMICOS'))
                             <div class="col-md-4">
-                                <a href="{{route('periodoacademico.index')}}"class="btn btn-success btn-raised btn-block btn-flat"> PERÍODOS ACADÉMICOS</a>
+                                <a href="{{route('periodoacademico.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> PERÍODOS ACADÉMICOS</a>
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-UNIDAD'))
                             <div class="col-md-4">
-                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Unidades</a>
+                                <a  href="{{route('unidad.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> Unidades</a>
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-JORNADA'))
                             <div class="col-md-4">
-                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Jornadas</a>
+                                <a href="{{route('jornada.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> Jornadas</a>
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-PROGRAMAR-PERIODO'))
                             <div class="col-md-4">
-                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Programar Período Académico</a>
+                                <a  href="{{route('periodounidad.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> Programar Período Académico</a>
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-CONVOCATORIA'))

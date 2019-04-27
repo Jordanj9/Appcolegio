@@ -119,10 +119,10 @@ class ConquienviveController extends Controller {
             }
             $aud->detalles = $str . " - " . $str2;
             $aud->save();
-            flash("La opción ¿con quien vive? <strong>" . $vive->etiqueta . "</strong> fue modificada de forma exitosa!")->success();
+            flash("La opción ¿con quien vive? <strong>" . $vive->descripcion. "</strong> fue modificada de forma exitosa!")->success();
             return redirect()->route('conquienvive.index');
         } else {
-            flash("La opción ¿con quien vive? <strong>" . $vive->etiqueta . "</strong> no pudo ser modificada. Error: " . $result)->error();
+            flash("La opción ¿con quien vive? <strong>" . $vive->descripcion . "</strong> no pudo ser modificada. Error: " . $result)->error();
             return redirect()->route('conquienvive.index');
         }
     }
@@ -151,10 +151,10 @@ class ConquienviveController extends Controller {
             }
             $aud->detalles = $str;
             $aud->save();
-            flash("La opción ¿con quien vive? <strong>" . $vive->etiqueta . "</strong> fue eliminadA de forma exitosa!")->success();
+            flash("La opción ¿con quien vive? <strong>" . $vive->descripcion. "</strong> fue eliminada de forma exitosa!")->success();
             return redirect()->route('conquienvive.index');
         } else {
-            flash("La opción ¿con quien vive? <strong>" . $vive->etiqueta . "</strong> no pudo ser eliminada. Error: " . $result)->error();
+            flash("La opción ¿con quien vive? <strong>" . $vive->descripcion . "</strong> no pudo ser eliminada. Error: " . $result)->error();
             return redirect()->route('conquienvive.index');
         }
 //        }

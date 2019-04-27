@@ -28,4 +28,8 @@ class Ciudad extends Model {
         return $this->belongsTo('App\Estado');
     }
 
+    public function unidads() {
+        return $this->hasMany('App\Unidad');
+    }
+
 }

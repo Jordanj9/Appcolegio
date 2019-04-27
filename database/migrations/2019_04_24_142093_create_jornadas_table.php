@@ -19,6 +19,7 @@ class CreateJornadasTable extends Migration {
             $table->string('horafin', 5)->nullable();
             $table->string('jornadasnies', 8)->nullable();
             $table->string('findesemana', 2)->nullable();
+            $table->string('user_change', 100);
             $table->timestamps();
         });
     }

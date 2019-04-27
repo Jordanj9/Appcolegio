@@ -93,4 +93,19 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
     //CON QUIEN VIVE    
     Route::resource('conquienvive', 'ConquienviveController');
     Route::get('conquienvive/{id}/delete', 'ConquienviveController@destroy')->name('conquienvive.delete');
+    //RANGO SISBEN    
+    Route::resource('rangosisben', 'RangosisbenController');
+    Route::get('rangosisben/{id}/delete', 'RangosisbenController@destroy')->name('rangosisben.delete');
+    //SITUACION AÑO ANTERIOR     
+    Route::resource('situacionanterior', 'SituacionanioanteriorController');
+    Route::get('situacionanterior/{id}/delete', 'SituacionanioanteriorController@destroy')->name('situacionanterior.delete');
+    //UNIDAD    
+    Route::resource('unidad', 'UnidadController');
+    Route::get('unidad/{id}/delete', 'UnidadController@destroy')->name('unidad.delete');
+    //JORNADA  
+    Route::resource('jornada', 'JornadaController');
+    Route::get('jornada/{id}/delete', 'JornadaController@destroy')->name('jornada.delete');
+    //PROGRAMAR PERIODO ACADEMICO 
+    Route::resource('periodounidad', 'PeriodounidadController');
+    Route::get('periodounidad/{id}/delete', 'PeriodounidadController@destroy')->name('periodounidad.delete');
 });
