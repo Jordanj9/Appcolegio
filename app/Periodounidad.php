@@ -36,4 +36,8 @@ class Periodounidad extends Model {
         return $this->belongsTo('App\Jornada');
     }
 
+    public function agendacitas() {
+        return $this->hasMany('App\Agendacitas');
+    }
+
 }
