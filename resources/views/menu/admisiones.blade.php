@@ -1,3 +1,4 @@
+
 @extends('layouts.admin')
 @section('breadcrumb')
 <h1>
@@ -33,6 +34,7 @@
                     <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-cogs"></i> DATOS BÁSICOS</a></li>
                     <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-list-ul"></i> DATOS DE ADMISIÓN Y MATRÍCULA</a></li>
                     <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-calendar"></i> CALENDARIO, PROCESOS Y CONVOCATORIA</a></li>
+                    <li><a href="#tab_4" data-toggle="tab"><i class="fa fa-calendar-plus-o"></i> AGENDA & ENTREVISTA</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab_1">
@@ -135,6 +137,16 @@
                             @if(session()->exists('PAG_ADMISIONES-CONVOCATORIA'))
                             <div class="col-md-4">
                                 <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Convocatoria</a>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_4">
+                        <div class="row">
+                            @if(session()->exists('PAG_ADMISIONES-AGENDA-CITAS'))
+                            <div class="col-md-4">
+                                <a href="{{route('agendacita.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> PROGRAMAR AGENDA</a>
                             </div>
                             @endif
                         </div>
