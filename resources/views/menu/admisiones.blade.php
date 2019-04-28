@@ -88,12 +88,12 @@
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-GRADOS-ACADEMICOS'))
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <a href="{{route('gradoacademico.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> GRADOS ACADÉMICOS (AÑOS ESCOLARES)</a>
                             </div>
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-CON-QUIEN-VIVE'))
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <a href="{{route('conquienvive.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> ¿CON QUIÉN VIVE?</a>
                             </div>
                             @endif
