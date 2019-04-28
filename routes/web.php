@@ -108,4 +108,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
     //PROGRAMAR PERIODO ACADEMICO 
     Route::resource('periodounidad', 'PeriodounidadController');
     Route::get('periodounidad/{id}/delete', 'PeriodounidadController@destroy')->name('periodounidad.delete');
+    //FECHAS DE PROCESOS
+    Route::resource('fechaprocesos', 'FechasprocesosacademicoController');
+    Route::get('fechaprocesos/{id}/index2', 'FechasprocesosacademicoController@index')->name('fechaprocesos.index2');
+    Route::get('fechaprocesos/{per}/{proceso}/{jornada}/{unidad}/fechas', 'FechasprocesosacademicoController@listID')->name('fechaprocesos.fechas');
+    Route::post('fechaprocesos/set', 'FechasprocesosacademicoController@set')->name('fechaprocesos.set');
+    Route::get('fechaprocesos/{id}/delete', 'FechasprocesosacademicoController@destroy')->name('fechaprocesos.delete');
+    //CONVOCATORIA 
+    Route::resource('convocatoria', 'ConvocatoriaController');
+    Route::get('convocatoria/{id}/delete', 'ConvocatoriaController@destroy')->name('convocatoria.delete');
+    
 });

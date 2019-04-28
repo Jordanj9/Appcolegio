@@ -134,7 +134,7 @@
                             @endif
                             @if(session()->exists('PAG_ADMISIONES-CONVOCATORIA'))
                             <div class="col-md-4">
-                                <a disabled="disabled" class="btn btn-success btn-raised btn-block btn-flat"> Convocatoria</a>
+                                <a href="{{route('convocatoria.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> Convocatoria</a>
                             </div>
                             @endif
                         </div>

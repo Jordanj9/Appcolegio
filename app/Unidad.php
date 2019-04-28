@@ -28,8 +28,16 @@ class Unidad extends Model {
         return $this->belongsTo('App\Ciudad');
     }
 
+    public function fechasprocesosacademicos() {
+        return $this->hasMany('App\Fechasprocesosacademico');
+    }
+
     public function periodounidad() {
         return $this->hasMany('App\Periodounidad');
+    }
+
+    public function convocatorias() {
+        return $this->hasMany('App\Convocatoria');
     }
 
 }

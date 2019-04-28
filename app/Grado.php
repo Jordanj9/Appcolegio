@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Grado extends Model
-{
+class Grado extends Model {
+
     /**
      * The attributes that are mass assignable.
      *
@@ -23,4 +23,9 @@ class Grado extends Model
     protected $hidden = [
             //
     ];
+
+    public function convocatorias() {
+        return $this->hasMany('App\Convocatoria');
+    }
+
 }

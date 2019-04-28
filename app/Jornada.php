@@ -28,4 +28,12 @@ class Jornada extends Model {
         return $this->hasMany('App\Periodounidad');
     }
 
+    public function fechasprocesosacademicos() {
+        return $this->hasMany('App\Fechasprocesosacademico');
+    }
+
+    public function convocatorias() {
+        return $this->hasMany('App\Convocatoria');
+    }
+
 }
