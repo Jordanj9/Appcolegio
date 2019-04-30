@@ -46,6 +46,15 @@
                                 <a href="{{route('categoria.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> CATEGORÍA</a>
                             </div>
                             @endif
+                            <div class="col-md-3">
+                                <a href="{{route('situacionestudiante.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> SITUACIÓN ESTUDIANTE</a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="{{route('naturaleza.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> NATURALEZA DE LAS MATERIAS</a>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="{{route('materias.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> MATERIAS</a>
+                            </div>
                         </div>
                     </div>
                     <!-- /.tab-pane -->

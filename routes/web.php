@@ -131,5 +131,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'matricula'], function() {
     Route::get('area/{id}/delete', 'AreaController@destroy')->name('area.delete');
     //CATEGORÍA ESTUDIANTE
     Route::resource('categoria', 'CategoriaController');
-    Route::get('categoria/{id}/delete', 'CategoriaController@destroy')->name('categoria.delete');
+    Route::get('categoria/{id}/delete', 'CategoriaController@destroy')->name('categoria.delete');//CATEGORÍA ESTUDIANTE
+    //SITUACION ESTUDIANTE
+    Route::resource('situacionestudiante', 'SituacionestudianteController');
+    Route::get('situacionestudiante/{id}/delete', 'SituacionestudianteController@destroy')->name('situacionestudiante.delete');//CATEGORÍA ESTUDIANTE
+    //NATURALEZA DE LAS MATERIAS
+    Route::resource('naturaleza', 'NaturalezaController');
+    Route::get('naturaleza/{id}/delete', 'NaturalezaController@destroy')->name('naturaleza.delete');
+    //MATERIAS
+    Route::resource('materias', 'MateriaController');
+    Route::get('materias/{id}/delete', 'MateriaController@destroy')->name('materias.delete');
 });
