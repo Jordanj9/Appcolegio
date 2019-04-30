@@ -1,5 +1,5 @@
-@extends('layouts.admin')
-@section('breadcrumb')
+@extends('layouts.admin') <!-- plantilla principal --> 
+@section('breadcrumb')<!-- navegación --> 
 <h1>
     Bienvenido
     <small>Sr(a). {{Auth::user()->nombres}}</small>
@@ -10,7 +10,7 @@
     <li class="active"><a>Privilegios</a></li>
 </ol>
 @endsection
-@section('content')
+@section('content') <!-- contenido --> 
 <div class="box">
     <div class="box-header with-border">
         <h3 class="box-title">ASIGNAR PERMISOS A GRUPOS DE USUARIOS(ROLES)</h3>

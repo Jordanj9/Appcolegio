@@ -27,6 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth'], 'prefix' => 'menu'], function() {
     Route::get('usuarios', 'MenuController@usuarios')->name('menu.usuarios');
     Route::get('admisiones', 'MenuController@admisiones')->name('menu.admisiones');
+    Route::get('matricula', 'MenuController@matricula')->name('menu.matricula');
 });
 
 
@@ -121,5 +122,14 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
     //CONVOCATORIA 
     Route::resource('convocatoria', 'ConvocatoriaController');
     Route::get('convocatoria/{id}/delete', 'ConvocatoriaController@destroy')->name('convocatoria.delete');
-    
+});
+
+//GRUPO DE RUTAS PARA LA ADMINISTRACIÓN DE MATRÍCULA
+Route::group(['middleware' => ['auth'], 'prefix' => 'matricula'], function() {
+    //ÁREAS
+    Route::resource('area', 'AreaController');
+    Route::get('area/{id}/delete', 'AreaController@destroy')->name('area.delete');
+    //CATEGORÍA ESTUDIANTE
+    Route::resource('categoria', 'CategoriaController');
+    Route::get('categoria/{id}/delete', 'CategoriaController@destroy')->name('categoria.delete');
 });

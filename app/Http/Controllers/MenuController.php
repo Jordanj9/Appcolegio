@@ -20,4 +20,11 @@ class MenuController extends Controller {
         return view('menu.admisiones')->with('location', 'admisiones');
     }
 
+    /**
+     * return the view for the manipulation of the enrollment process
+     */
+    public function matricula() {
+        return view('menu.matricula')->with('location', 'matricula');
+    }
+
 }
