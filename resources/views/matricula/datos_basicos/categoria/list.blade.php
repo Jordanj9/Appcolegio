@@ -46,7 +46,7 @@
                         <td>{{$a->created_at}}</td>
                         <td>{{$a->updated_at}}</td>
                         <td>
-                            <a href="{{route('categoria.edit',$a->id)}}" style="margin-left: 10px;" data-toggle="tooltip" title="Editar Categorá" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
+                            <a href="{{route('categoria.edit',$a->id)}}" style="margin-left: 10px;" data-toggle="tooltip" title="Editar Categoría" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
                             <a href="{{route('categoria.delete',$a->id)}}" style="color: red; margin-left: 10px;" data-toggle="tooltip" title="Eliminar Categoría" style="margin-left: 10px;"><i class="fa fa-trash-o"></i></a>
                         </td>
                     </tr>

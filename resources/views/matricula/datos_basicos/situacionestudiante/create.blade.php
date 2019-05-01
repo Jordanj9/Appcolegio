@@ -8,14 +8,14 @@
     <li><a href="{{route('home')}}"><i class="fa fa-home"></i> Inicio</a></li>
     <li><a href="{{route('menu.matricula')}}"><i class="fa fa-tasks"></i> Matrícula</a></li>
     <li><a href="{{route('menu.matricula')}}"><i class="fa fa-cogs"></i> Datos Básicos</a></li>
-    <li><a href="{{route('categoria.index')}}"><i class="fa fa-list-alt"></i> Categoría</a></li>
-    <li class="active"><a>Editar</a></li>
+    <li><a href="{{route('situacionestudiante.index')}}"><i class="fa-odnoklassniki"></i> Situación del Estudiante</a></li>
+    <li class="active"><a>Crear</a></li>
 </ol>
 @endsection
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">EDITAR CATEGORÍA</h3>
+        <h3 class="box-title">CREAR NUEVA SITUACIÓNDEL ESTUDIANTE</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>
@@ -31,26 +31,25 @@
             @endcomponent
         </div>
         <div class="col-md-12">
-            <form class="form" role='form' method="POST" action="{{route('categoria.update',$c->id)}}">
+            <form class="form" role='form' method="POST" action="{{route('situacionestudiante.store')}}">
                 @csrf
-                <input name="_method" type="hidden" value="PUT" />
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input class="form-control" type="text" value="{{$c->nombre}}" required="required" maxlength="50" name="nombre">
+                        <input class="form-control" type="text" required="required" maxlength="50" name="nombre">
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input class="form-control" type="text" value="{{$c->descripcion}}" placeholder="Descripción de la Categoría (opcional)" name="descripcion">
+                        <input class="form-control" type="text" placeholder="Descripción de la Situación del Estudiante (opcional) " name="descripcion">
                     </div>
                 </div>
                 <div class="col-md-12" style="margin-top: 20px !important">
                     <div class="form-group">
                         <button class="btn btn-success icon-btn pull-left" type="submit"><i class="fa fa-fw fa-lg fa-save"></i>Guardar</button>
                         <button class="btn btn-info icon-btn pull-left" type="reset"><i class="fa fa-fw fa-lg fa-trash-o"></i>Limpiar</button>
-                        <a class="btn btn-danger icon-btn pull-left" href="{{route('categoria.index')}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+                        <a class="btn btn-danger icon-btn pull-left" href="{{route('situacionestudiante.index')}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
                     </div>
                 </div>
             </form>
@@ -66,7 +65,7 @@
                 <h4 class="modal-title">Información de Ayuda</h4>
             </div>
             <div class="modal-body">
-                <p>Edite los datos de la Categoría, la descripción es opcional y el campo nombre debe llevar máximo 50 caracteres.</p>
+                <p>Agregue nuevas situaciones de los Estudiantes, la descripción es opcional y el campo nombre debe llevar máximo 50 caracteres.</p>
             </div>
             <div class="modal-footer" style="background-color: #d2d6de !important; opacity: .65;">
                 <button type="button"  class="btn btn-block btn-danger btn-flat pull-right" data-dismiss="modal"> <i class="fa fa-reply"></i> Regresar</button>
