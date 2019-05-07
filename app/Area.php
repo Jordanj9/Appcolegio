@@ -23,4 +23,8 @@ class Area extends Model
     protected $hidden = [
             //
     ];
+    
+    public function materias(){
+        return $this->hasMany('Materia');
+    }
 }

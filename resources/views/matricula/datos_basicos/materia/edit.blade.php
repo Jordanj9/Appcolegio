@@ -5,17 +5,16 @@
     <small>Sr(a). {{Auth::user()->nombres}}</small>
 </h1>
 <ol class="breadcrumb">
-    <li><a href="{{route('home')}}"><i class="fa fa-home"></i> Inicio</a></li>
-    <li><a href="{{route('menu.matricula')}}"><i class="fa fa-tasks"></i> Matrícula</a></li>
+    <li><a href="{{route('menu.matricula')}}"><i class="fa fa-users"></i> Admisiones</a></li>
     <li><a href="{{route('menu.matricula')}}"><i class="fa fa-cogs"></i> Datos Básicos</a></li>
-    <li><a href="{{route('naturaleza.index')}}"><i class="fa-bookmark-o"></i> Naturaleza</a></li>
+    <li><a href="{{route('materia.index')}}"><i class="fa fa-globe"></i> Materias</a></li>
     <li class="active"><a>Editar</a></li>
 </ol>
 @endsection
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">EDITAR NATURALEZA</h3>
+        <h3 class="box-title">EDITAR MATERIA</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>
@@ -31,26 +30,76 @@
             @endcomponent
         </div>
         <div class="col-md-12">
-            <form class="form" role='form' method="POST" action="{{route('naturaleza.update',$n->id)}}">
+            <form class="form" role='form' method="POST" action="{{route('materia.update',$mat->id)}}">
                 @csrf
-                <input name="_method" type="hidden" value="PUT" />
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label>Código de la Materia</label>
+                        <input class="form-control" type="text" value="{{$mat->codigomateria}}" placeholder="Código de la Materia (en el caso del colegio Ebenezer equivale al código asignado por la secretaria de educación )" name="codigomateria">
+                    </div>
+                </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label>Nombre</label>
-                        <input class="form-control" type="text" value="{{$n->nombre}}" required="required" maxlength="50" name="nombre">
+                        <label>Nombre de la Materia</label>
+                        <input class="form-control" type="text" value="{{$mat->nombre}}" required="required" name="nombre">
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input class="form-control" type="text" value="{{$n->descripcion}}" placeholder="Descripción de la Naturaleza (opcional)" name="descripcion">
+                        <input class="form-control" type="text" value="{{$mat->descripcion}}" placeholder="Descripción de la Materia (opcional)" name="descripcion">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Recuperable ?</label>
+                        <select class="form-control" required="required" value="{{$mat->recuperable}}" name="recuperable" >
+                            <option>-- Seleccione una opción --</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Nivelable ?</label>
+                        <select class="form-control" required="required"name="nivelable" value="{{$mat->nivelable}}">
+                            <option>-- Seleccione una opción --</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>
+                    </div>
+                </div>
+                <!--busca areas-->
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Seleccione una Naturaleza</label>
+                        <select class="form-control"  style="width: 100%;" name="naturaleza_id" required="required" >
+                            <option value="0">-- Seleccione una opción --</option>
+                            @foreach($naturalezas as $key=>$value)
+                            <option value="{{$key}}">{{$value}}</option>
+                            @endforeach
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Seleccione una Naturaleza</label>
+                        <select class="form-control"  style="width: 100%;" name="area_id" required="required">
+                            <option value="0">-- Seleccione una opción --</option>
+                            @foreach($areas as $key=>$value)
+                            <option value="{{$key}}">{{$value}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-12" style="margin-top: 20px !important">
                     <div class="form-group">
                         <button class="btn btn-success icon-btn pull-left" type="submit"><i class="fa fa-fw fa-lg fa-save"></i>Guardar</button>
                         <button class="btn btn-info icon-btn pull-left" type="reset"><i class="fa fa-fw fa-lg fa-trash-o"></i>Limpiar</button>
-                        <a class="btn btn-danger icon-btn pull-left" href="{{route('naturaleza.index')}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+                        <a class="btn btn-danger icon-btn pull-left" href="{{route('materia.index')}}"><i class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
                     </div>
                 </div>
             </form>
@@ -66,7 +115,7 @@
                 <h4 class="modal-title">Información de Ayuda</h4>
             </div>
             <div class="modal-body">
-                <p>Edite los datos de la Naturaleza, la descripción es opcional y el campo nombre debe llevar máximo 50 caracteres. ej: teórica, práctica, virtual…</p>
+                <p>Edite los datos de la Materia. Si la naturalezas al cual pertenece la Materia que va a agregar no aparece en la lista de estados diríjase al módulo de gestión de naturalezas y agréguelo, si no conoce la naturalezas seleccione la opción OTRO.</p>
             </div>
             <div class="modal-footer" style="background-color: #d2d6de !important; opacity: .65;">
                 <button type="button"  class="btn btn-block btn-danger btn-flat pull-right" data-dismiss="modal"> <i class="fa fa-reply"></i> Regresar</button>

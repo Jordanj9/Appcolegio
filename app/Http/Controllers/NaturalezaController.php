@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\NaturalezaRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Matriculaauditoria;
-
+use App\Materia;
 class NaturalezaController extends Controller
 {
     /**
@@ -42,9 +42,7 @@ class NaturalezaController extends Controller
      */
     public function store(NaturalezaRequest $request)
     {
-       
-    }
- $naturaleza = new Naturaleza($request->all());
+        $naturaleza = new Naturaleza($request->all());
         foreach ($naturaleza->attributesToArray() as $key => $value) {
             $naturaleza->$key = strtoupper($value);
         }
@@ -67,6 +65,7 @@ class NaturalezaController extends Controller
             flash("La Naturaleza <strong>" . $naturaleza->nombre . "</strong> no pudo ser almacenada. Error: " . $result)->error();
             return redirect()->route('naturaleza.index');
         }
+    }
     /**
      * Display the specified resource.
      *
@@ -166,4 +165,21 @@ class NaturalezaController extends Controller
         }
 //        }
     }
-}
+   public function materias($id) {
+        $naturaleza = Naturaleza::find($id);
+        $naturalezas = $naturaleza->naturalezas;
+        if (count($naturalezas) > 0) {
+            $naturalezasf = null;
+            foreach ($naturalezas as $value) {
+                $obj["id"] = $value->id;
+                $obj["value"] = $value->nombre;
+                $naturalezasf[] = $obj;
+            }
+            return json_encode($naturalezasf);
+        } else {
+            return "null";
+        }
+    }
+    
+       
+   }

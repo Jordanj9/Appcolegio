@@ -148,7 +148,7 @@ class CiudadController extends Controller {
     /**
      * show all resource from a estado.
      *
-     * @param  int  $id
+     * @param  int  $id codigo del dpto
      * @return \Illuminate\Http\Response
      */
     public function sectores($id) {

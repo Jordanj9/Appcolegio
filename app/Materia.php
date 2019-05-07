@@ -23,4 +23,10 @@ class Materia extends Model
     protected $hidden = [
             //
     ];
+     public function area() {
+        return $this->belongsTo('App\Area');
+    }
+    public function naturaleza() {
+        return $this->belongsTo('App\Naturaleza');
+    }
 }
