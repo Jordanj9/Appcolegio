@@ -30,30 +30,30 @@
             @endcomponent
         </div>
         <div class="col-md-12">
-            <form class="form" role='form' method="POST" action="{{route('materia.update',$mat->id)}}">
+            <form class="form" role='form' method="POST" action="{{route('materia.update',$materia->id)}}">
                 @csrf
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Código de la Materia</label>
-                        <input class="form-control" type="text" value="{{$mat->codigomateria}}" placeholder="Código de la Materia (en el caso del colegio Ebenezer equivale al código asignado por la secretaria de educación )" name="codigomateria">
+                        <input class="form-control" type="text" value="{{$materia->codigomateria}}" placeholder="Código de la Materia (en el caso del colegio Ebenezer equivale al código asignado por la secretaria de educación )" name="codigomateria">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Nombre de la Materia</label>
-                        <input class="form-control" type="text" value="{{$mat->nombre}}" required="required" name="nombre">
+                        <input class="form-control" type="text" value="{{$materia->nombre}}" required="required" name="nombre">
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input class="form-control" type="text" value="{{$mat->descripcion}}" placeholder="Descripción de la Materia (opcional)" name="descripcion">
+                        <input class="form-control" type="text" value="{{$materia->descripcion}}" placeholder="Descripción de la Materia (opcional)" name="descripcion">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Recuperable ?</label>
-                        <select class="form-control" required="required" value="{{$mat->recuperable}}" name="recuperable" >
+                        <select class="form-control" required="required"  name="recuperable" value="{{$materia->recuperable}}">
                             <option>-- Seleccione una opción --</option>
                             <option value="SI">SI</option>
                             <option value="NO">NO</option>
@@ -64,7 +64,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Nivelable ?</label>
-                        <select class="form-control" required="required"name="nivelable" value="{{$mat->nivelable}}">
+                        <select class="form-control" required="required"name="nivelable" >
                             <option>-- Seleccione una opción --</option>
                             <option value="SI">SI</option>
                             <option value="NO">NO</option>
@@ -86,8 +86,8 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <label>Seleccione una Naturaleza</label>
-                        <select class="form-control"  style="width: 100%;" name="area_id" required="required">
+                        <label>Seleccione un Área</label>
+                        <select class="form-control"  style="width: 100%;" name="area_id" required="required" >
                             <option value="0">-- Seleccione una opción --</option>
                             @foreach($areas as $key=>$value)
                             <option value="{{$key}}">{{$value}}</option>

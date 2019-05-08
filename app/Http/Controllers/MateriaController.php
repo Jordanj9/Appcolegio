@@ -76,8 +76,15 @@ class MateriaController extends Controller {
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function show(Materia $materia) {
-        //
+    public function show($id) {
+        $naturalezas = Naturaleza::all()->pluck('nombre', 'id');
+        $areas = Area::all()->pluck('nombre', 'id');
+        $materia = Materia::find($id);
+        return view('matricula.datos_basicos.materia.show')
+                        ->with('location', 'matricula')
+                        ->with('materia', $materia)
+                        ->with('naturalezas', $naturalezas)
+                        ->with('areas', $areas);
     }
 
     /**
@@ -92,7 +99,7 @@ class MateriaController extends Controller {
         $materia = Materia::find($id);
         return view('matricula.datos_basicos.materia.edit')
                         ->with('location', 'matricula')
-                        ->with('mat', $materia)
+                        ->with('materia', $materia)
                         ->with('naturalezas', $naturalezas)
                         ->with('areas', $areas);
     }
