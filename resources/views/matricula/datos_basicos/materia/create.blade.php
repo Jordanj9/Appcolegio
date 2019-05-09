@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <!--busca areas-->
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label>Seleccione una Naturaleza</label>
                         <select class="form-control"  style="width: 100%;" name="naturaleza_id" required="required">
@@ -82,9 +82,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <label>Seleccione una Naturaleza</label>
+                        <label>Seleccione una Área</label>
                         <select class="form-control"  style="width: 100%;" name="area_id" required="required">
                             <option value="0">-- Seleccione una opción --</option>
                             @foreach($areas as $key=>$value)

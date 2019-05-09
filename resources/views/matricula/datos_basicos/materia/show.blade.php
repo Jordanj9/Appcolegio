@@ -39,6 +39,10 @@
                         <td class="subject">{{$materia->codigomateria}}</td>
                     </tr>
                     <tr class="read">
+                        <td class="contact"><b>Nombre Materia</b></td>
+                        <td class="subject">{{$materia->nombre}}</td>
+                    </tr>
+                    <tr class="read">
                         <td class="contact"><b>Descripción</b></td>
                         <td class="subject">{{$materia->descripcion}}</td>
                     </tr>

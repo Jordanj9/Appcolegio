@@ -8,16 +8,15 @@ use App\Http\Requests\SituacionestudianteRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Matriculaauditoria;
 
-class SituacionestudianteController extends Controller
-{
+class SituacionestudianteController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-         $situacionestudiante = Situacionestudiante::all();
+    public function index() {
+        $situacionestudiante = Situacionestudiante::all();
         return view('matricula.datos_basicos.situacionestudiante.list')
                         ->with('location', 'matricula')
                         ->with('situacionestudiantes', $situacionestudiante);
@@ -28,9 +27,8 @@ class SituacionestudianteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-         return view('matricula.datos_basicos.situacionestudiante.create')
+    public function create() {
+        return view('matricula.datos_basicos.situacionestudiante.create')
                         ->with('location', 'matricula');
     }
 
@@ -40,8 +38,7 @@ class SituacionestudianteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SituacionestudianteRequest $request)
-    {
+    public function store(SituacionestudianteRequest $request) {
         $situacionestudiante = new Situacionestudiante($request->all());
         foreach ($situacionestudiante->attributesToArray() as $key => $value) {
             $situacionestudiante->$key = strtoupper($value);
@@ -62,7 +59,8 @@ class SituacionestudianteController extends Controller
             flash("La Situación Estudiante <strong>" . $situacionestudiante->nombre . "</strong> fue almacenada de forma exitosa!")->success();
             return redirect()->route('situacionestudiante.index');
         } else {
-            flash("La Situación del Estudiante <strong>" . $situacionestudiante->nombre . "</strong> no pudo ser almacenada. Error: " . $result)->error();            return redirect()->route('situacionestudiante.index');
+            flash("La Situación del Estudiante <strong>" . $situacionestudiante->nombre . "</strong> no pudo ser almacenada. Error: " . $result)->error();
+            return redirect()->route('situacionestudiante.index');
         }
     }
 
@@ -72,8 +70,7 @@ class SituacionestudianteController extends Controller
      * @param  \App\Situacionestudiante  $situacionestudiante
      * @return \Illuminate\Http\Response
      */
-    public function show(Situacionestudiante $situacionestudiante)
-    {
+    public function show(Situacionestudiante $situacionestudiante) {
         //
     }
 
@@ -83,13 +80,11 @@ class SituacionestudianteController extends Controller
      * @param  \App\Situacionestudiante  $situacionestudiante
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $situacionestudiante= Situacionestudiante::find($id);
+    public function edit($id) {
+        $situacionestudiante = Situacionestudiante::find($id);
         return view('matricula.datos_basicos.situacionestudiante.edit')
                         ->with('location', 'matricula')
-                
-                        ->with('se',$situacionestudiante);
+                        ->with('se', $situacionestudiante);
     }
 
     /**
@@ -99,8 +94,7 @@ class SituacionestudianteController extends Controller
      * @param  \App\Situacionestudiante  $situacionestudiante
      * @return \Illuminate\Http\Response
      */
-    public function update(SituacionestudianteRequest $request, Situacionestudiante $situacionestudiante)
-    {
+    public function update(SituacionestudianteRequest $request, Situacionestudiante $situacionestudiante) {
         $m = new Situacionestudiante($situacionestudiante->attributesToArray());
         foreach ($situacionestudiante->attributesToArray() as $key => $value) {
             if (isset($request->$key)) {
@@ -138,13 +132,12 @@ class SituacionestudianteController extends Controller
      * @param  \App\Situacionestudiante  $situacionestudiante
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //        if (count($tipodoc->paginas) > 0 || count($grupo->modulos) > 0 || count($grupo->users) > 0) {
 //            flash("El Grupo de usuario <strong>" . $grupo->nombre . "</strong> no pudo ser eliminado porque tiene permisos o usuarios asociados.")->warning();
 //            return redirect()->route('grupousuario.index');
 //        } else {
-        $situacionestudiante = Naturaleza::find($id);
+        $situacionestudiante = Situacionestudiante::find($id);
         $result = $situacionestudiante->delete();
         if ($result) {
             $aud = new Matriculaauditoria();
@@ -165,4 +158,5 @@ class SituacionestudianteController extends Controller
         }
 //        }
     }
+
 }

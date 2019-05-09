@@ -103,7 +103,6 @@ class MateriaController extends Controller {
                         ->with('naturalezas', $naturalezas)
                         ->with('areas', $areas);
     }
-    
 
     /**
      * Update the specified resource in storage.
@@ -112,7 +111,8 @@ class MateriaController extends Controller {
      * @param  \App\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function update(MateriaRequest $request, Materia $materia) {
+    public function update(Request $request, $id) {
+        $materia = Materia::find($id);
         $m = new Materia($materia->attributesToArray());
         foreach ($materia->attributesToArray() as $key => $value) {
             if (isset($request->$key)) {
@@ -151,31 +151,30 @@ class MateriaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        if (count($tipodoc->paginas) > 0 || count($grupo->modulos) > 0 || count($grupo->users) > 0) {
+// if (count($tipodoc->paginas) > 0 || count($grupo->modulos) > 0 || count($grupo->users) > 0) {
 //            flash("El Grupo de usuario <strong>" . $grupo->nombre . "</strong> no pudo ser eliminado porque tiene permisos o usuarios asociados.")->warning();
 //            return redirect()->route('grupousuario.index');
 //        } else {
-            $materia = Materia::find($id);
-            $result = $materia->delete();
-            if ($result) {
-                $aud = new Matriculaauditoria();
-                $u = Auth::user();
-                $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
-                $aud->operacion = "ELIMINAR";
-                $str = "ELIMINACIÓN DE LA MATERIA. DATOS ELIMINADOS: ";
-                foreach ($materia->attributesToArray() as $key => $value) {
-                    $str = $str . ", " . $key . ": " . $value;
-                }
-                $aud->detalles = $str;
-                $aud->save();
-                flash("La Materia <strong>" . $materia->nombre . "</strong> fue eliminada de forma exitosa!")->success();
-                return redirect()->route('materia.index');
-            } else {
-                flash("La Materia <strong>" . $materia->nombre . "</strong> no pudo ser eliminada. Error: " . $result)->error();
-                return redirect()->route('materia.index');
+        $materia = Materia::find($id);
+        $result = $materia->delete();
+        if ($result) {
+            $aud = new Matriculaauditoria();
+            $u = Auth::user();
+            $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
+            $aud->operacion = "ELIMINAR";
+            $str = "ELIMINACIÓN DE LA MATERIA. DATOS ELIMINADOS: ";
+            foreach ($materia->attributesToArray() as $key => $value) {
+                $str = $str . ", " . $key . ": " . $value;
             }
-//        }
+            $aud->detalles = $str;
+            $aud->save();
+            flash("La Materia <strong>" . $materia->nombre . "</strong> fue eliminada de forma exitosa!")->success();
+            return redirect()->route('materia.index');
+        } else {
+            flash("La Materia <strong>" . $materia->nombre . "</strong> no pudo ser eliminada. Error: " . $result)->error();
+            return redirect()->route('materia.index');
         }
+//        }
     }
 
     /**
@@ -184,19 +183,19 @@ class MateriaController extends Controller {
      * @param  \App\Materia  $id
      * @return naturaleza -> nombre
      */
- /*   public function naturaleza($id) {
-        $naturaleza = Naturaleza::find($id);
+    /*   public function naturaleza($id) {
+      $naturaleza = Naturaleza::find($id);
 
-        $materias = $naturaleza->naturalezas;
-        if (count($materias) > 0) {
-            foreach ($naturaleza as $value) {
-                if ($id == $value->id)
-                    return $value->nombre;
-            }
-        } else {
-            return "null";
-        }
-    }*/
+      $materias = $naturaleza->naturalezas;
+      if (count($materias) > 0) {
+      foreach ($naturaleza as $value) {
+      if ($id == $value->id)
+      return $value->nombre;
+      }
+      } else {
+      return "null";
+      }
+      } */
 
     /**
      * Retorna el nombre del area
@@ -233,5 +232,4 @@ class MateriaController extends Controller {
 //            return "null";
 //        }
 //    }
-
 }

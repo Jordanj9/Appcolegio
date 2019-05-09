@@ -32,6 +32,7 @@
         <div class="col-md-12">
             <form class="form" role='form' method="POST" action="{{route('materia.update',$materia->id)}}">
                 @csrf
+                <input name="_method" type="hidden" value="PUT" />
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Código de la Materia</label>
@@ -55,9 +56,13 @@
                         <label>Recuperable ?</label>
                         <select class="form-control" required="required"  name="recuperable" value="{{$materia->recuperable}}">
                             <option>-- Seleccione una opción --</option>
-                            <option value="SI">SI</option>
+                            @if($materia->recuperable=='SI')
+                            <option value="SI" selected="true">SI</option>
                             <option value="NO">NO</option>
-                            
+                            @else
+                            <option value="SI">SI</option>
+                            <option value="NO" selected="true">NO</option>
+                            @endif
                         </select>
                     </div>
                 </div>
@@ -66,31 +71,44 @@
                         <label>Nivelable ?</label>
                         <select class="form-control" required="required"name="nivelable" >
                             <option>-- Seleccione una opción --</option>
-                            <option value="SI">SI</option>
+                            @if($materia->nivelable=='SI')
+                            <option value="SI" selected="true">SI</option>
                             <option value="NO">NO</option>
+                            @else
+                            <option value="SI">SI</option>
+                            <option value="NO" selected="true">NO</option>
+                            @endif
                         </select>
                     </div>
                 </div>
                 <!--busca areas-->
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label>Seleccione una Naturaleza</label>
                         <select class="form-control"  style="width: 100%;" name="naturaleza_id" required="required" >
                             <option value="0">-- Seleccione una opción --</option>
                             @foreach($naturalezas as $key=>$value)
+                            @if($materia->naturaleza_id==$key)
+                            <option value="{{$key}}" selected="true">{{$value}}</option>
+                            @else
                             <option value="{{$key}}">{{$value}}</option>
+                            @endif
                             @endforeach
                             
                         </select>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label>Seleccione un Área</label>
                         <select class="form-control"  style="width: 100%;" name="area_id" required="required" >
                             <option value="0">-- Seleccione una opción --</option>
                             @foreach($areas as $key=>$value)
+                            @if($materia->area_id==$key)
+                            <option value="{{$key}}" selected="true">{{$value}}</option>
+                            @else
                             <option value="{{$key}}">{{$value}}</option>
+                            @endif
                             @endforeach
                         </select>
                     </div>
