@@ -27,6 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth'], 'prefix' => 'menu'], function() {
     Route::get('usuarios', 'MenuController@usuarios')->name('menu.usuarios');
     Route::get('admisiones', 'MenuController@admisiones')->name('menu.admisiones');
+    Route::get('matricula', 'MenuController@matricula')->name('menu.matricula');
 });
 
 
@@ -121,5 +122,24 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admisiones'], function() {
     //CONVOCATORIA 
     Route::resource('convocatoria', 'ConvocatoriaController');
     Route::get('convocatoria/{id}/delete', 'ConvocatoriaController@destroy')->name('convocatoria.delete');
-    
+});
+
+//GRUPO DE RUTAS PARA LA ADMINISTRACIÓN DE MATRÍCULA
+Route::group(['middleware' => ['auth'], 'prefix' => 'matricula'], function() {
+    //ÁREAS
+    Route::resource('area', 'AreaController');
+    Route::get('area/{id}/delete', 'AreaController@destroy')->name('area.delete');
+    //CATEGORÍA ESTUDIANTE
+    Route::resource('categoria', 'CategoriaController');
+    Route::get('categoria/{id}/delete', 'CategoriaController@destroy')->name('categoria.delete');//CATEGORÍA ESTUDIANTE
+    //SITUACION ESTUDIANTE
+    Route::resource('situacionestudiante', 'SituacionestudianteController');
+    Route::get('situacionestudiante/{id}/delete', 'SituacionestudianteController@destroy')->name('situacionestudiante.delete');//CATEGORÍA ESTUDIANTE
+    //NATURALEZA DE LAS MATERIAS
+    Route::resource('naturaleza', 'NaturalezaController');
+    Route::get('naturaleza/{id}/delete', 'NaturalezaController@destroy')->name('naturaleza.delete');
+    //MATERIAS
+    Route::resource('materia', 'MateriaController');
+    Route::get('materia/{id}/delete', 'MateriaController@destroy')->name('materia.delete');
+//    Route::get('materias/{id}/materia', 'MateriaController@materia')->name('materias.materia'); //agregado por johnp
 });

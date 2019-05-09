@@ -360,6 +360,13 @@
                         <li><a href="{{route('menu.admisiones')}}"><i class="fa fa-check-circle-o"></i> <span>Admisiones</span></a></li>
                         @endif
                         @endif
+                        @if(session()->exists('MOD_MATRICULA'))
+                        @if($location=='matricula')
+                        <li class="active"><a href="{{route('menu.matricula')}}"><i class="fa fa-tasks"></i> <span>Matrícula</span></a></li>
+                        @else
+                        <li><a href="{{route('menu.matricula')}}"><i class="fa fa-tasks"></i> <span>Matrícula</span></a></li>
+                        @endif
+                        @endif
                         <!--                        <li class="treeview">
                                                     <a href="#">
                                                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
