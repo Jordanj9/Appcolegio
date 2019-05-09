@@ -58,11 +58,11 @@
                                 <td>{{$p->cupousado}}</td>
                                 <td>{{$p->inscritos}}</td>
                                 <td>{{$p->grado->etiqueta." - ".$p->grado->descripcion}}</td>
+                                <td>{{$p->periodoacademico->etiqueta. " - ".$p->periodoacademico->anio}}</td>   
                                 <td>{{$p->unidad->nombre." - ".$p->unidad->ciudad->nombre}}</td>
-                                <td>{{$p->periodoacademico->etiqueta. " - ".$p->periodoacademico->anio}}</td>
                                 <td>{{$p->jornada->descripcion}}</td>
                                 <td>
-                                    <a href="{{route('convocatoria.edit',$p->id)}}" style="margin-left: 10px;" data-toggle="tooltip" title="Etidat Convocatoria" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('convocatoria.edit',$p->id)}}" style="margin-left: 10px;" data-toggle="tooltip" title="Etidar Convocatoria" style="margin-left: 10px;"><i class="fa fa-edit"></i></a>
                                     <a href="{{route('convocatoria.delete',$p->id)}}" style="color: red; margin-left: 10px;" data-toggle="tooltip" title="Eliminar Convocatoria" style="margin-left: 10px;"><i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
@@ -83,7 +83,7 @@
                 <h4 class="modal-title">Información de Ayuda</h4>
             </div>
             <div class="modal-body">
-                <p>Las jornadas de trabajo y estudio definen los horarios generales de la institución. La Jornada Diurna por ejemplo se define así: si el horario de clases para los alumnos de un programa académico oscila entre las 6:00 a.m. y las 6:00 p.m. Agregue nuevas jornadas.</p>
+                <p>Gestione las convocatorias de inscripción, sus estados y asociela a los grados.</p>
             </div>
             <div class="modal-footer" style="background-color: #d2d6de !important; opacity: .65;">
                 <button type="button"  class="btn btn-block btn-danger btn-flat pull-right" data-dismiss="modal"> <i class="fa fa-reply"></i> Regresar</button>

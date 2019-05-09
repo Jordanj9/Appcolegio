@@ -117,8 +117,11 @@ class ConvocatoriaController extends Controller {
      * @param  \App\Convocatoria  $convocatoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Convocatoria $convocatoria) {
-//
+    public function edit($id) {
+        $convocatoria = Convocatoria::find($id);
+        return view('admisiones.calendario_procesos_convocatoria.convocatoria.edit')
+                        ->with('location', 'adimisiones')
+                        ->with('convocatoria', $convocatoria);
     }
 
     /**
@@ -128,8 +131,37 @@ class ConvocatoriaController extends Controller {
      * @param  \App\Convocatoria  $convocatoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Convocatoria $convocatoria) {
-//
+    public function update(Request $request, $id) {
+        $conv = Convocatoria::find($id);
+        $m = new Convocatoria($conv->attributesToArray());
+        foreach ($conv->attributesToArray() as $key => $value) {
+            if (isset($request->$key)) {
+                $conv->$key = strtoupper($request->$key);
+            }
+        }
+        $u = Auth::user();
+        $conv->user_change = $u->identificacion;
+        $result = $conv->save();
+        if ($result) {
+            $aud = new Auditoriaadmision();
+            $aud->usuario = "ID: " . $u->identificacion . ",  USUARIO: " . $u->nombres . " " . $u->apellidos;
+            $aud->operacion = "ACTUALIZAR DATOS";
+            $str = "EDICION DE CONVOCATORIA. DATOS NUEVOS: ";
+            $str2 = " DATOS ANTIGUOS: ";
+            foreach ($m->attributesToArray() as $key => $value) {
+                $str2 = $str2 . ", " . $key . ": " . $value;
+            }
+            foreach ($conv->attributesToArray() as $key => $value) {
+                $str = $str . ", " . $key . ": " . $value;
+            }
+            $aud->detalles = $str . " - " . $str2;
+            $aud->save();
+            flash("La convocatoria <strong>" . $conv->grado->etiqueta . " - " . $conv->grado->descripcion . "</strong> fue modificada de forma exitosa!")->success();
+            return redirect()->route('convocatoria.index');
+        } else {
+            flash("La convocatoria <strong>" . $conv->grado->etiqueta . " - " . $conv->grado->descripcion . "</strong> no pudo ser modificada. Error: " . $result)->error();
+            return redirect()->route('convocatoria.index');
+        }
     }
 
     /**
@@ -152,7 +184,7 @@ class ConvocatoriaController extends Controller {
             $aud->operacion = "ELIMINAR";
             $str = "ELIMINACIÓN DE CONVOCATORIA. DATOS ELIMINADOS: ";
             foreach ($conv->attributesToArray() as $key => $value) {
-                    $str = $str . ", " . $key . ": " . $value;
+                $str = $str . ", " . $key . ": " . $value;
             }
             $aud->detalles = $str;
             $aud->save();

@@ -14,7 +14,7 @@
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">LISTADO DE ASOCIACIONES</h3>
+        <h3 class="box-title">LISTADO DE PERÍODOS PROGRAMADOS EN LAS UNIDADES</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>
@@ -30,7 +30,7 @@
                 <thead>
                     <tr class="info">
                         <th>UNIDAD</th>
-                        <th>PERIODO</th>
+                        <th>PERÍODO</th>
                         <th>JORNADA</th>
                         <th>ACCIONES</th>
                     </tr>
@@ -60,7 +60,7 @@
                 <h4 class="modal-title">Información de Ayuda</h4>
             </div>
             <div class="modal-body">
-                <p>Las jornadas de trabajo y estudio definen los horarios generales de la institución. La Jornada Diurna por ejemplo se define así: si el horario de clases para los alumnos de un programa académico oscila entre las 6:00 a.m. y las 6:00 p.m.</p>
+                <p>Gestione las convocatorias de inscripción, sus estados y asociela a los grados.</p>
             </div>
             <div class="modal-footer" style="background-color: #d2d6de !important; opacity: .65;">
                 <button type="button"  class="btn btn-block btn-danger btn-flat pull-right" data-dismiss="modal"> <i class="fa fa-reply"></i> Regresar</button>

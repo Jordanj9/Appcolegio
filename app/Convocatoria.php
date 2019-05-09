@@ -37,7 +37,7 @@ class Convocatoria extends Model {
     }
 
     public function jornada() {
-        return $this->belongsTo('App\Convocatoria');
+        return $this->belongsTo('App\Jornada');
     }
 
 }
