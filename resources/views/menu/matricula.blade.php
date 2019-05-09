@@ -58,7 +58,7 @@
                             @endif
                             @if(session()->exists('PAG_MATRICULA-MATERIAS'))
                             <div class="col-md-3">
-                                <a href="{{route('materias.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> MATERIAS</a>
+                                <a href="{{route('materia.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> MATERIAS</a>
                             </div>
                             @endif
                         </div>

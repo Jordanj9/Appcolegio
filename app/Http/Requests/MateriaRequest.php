@@ -4,15 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MateriaRequest extends FormRequest
-{
+class MateriaRequest extends FormRequest {
+
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -21,14 +20,14 @@ class MateriaRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
-         return [
-            'nombre' => 'required|unique|max:200|min:3',
-            'codigomateria' => 'required|unique|max:30|min:3',
-             'descripcion' => 'max:200|min:3',
-            'recuperable' => 'required|in:SI,NO',
-            'nivelable' => 'required|in:SI,NO'  
+    public function rules() {
+        return [
+            'nombre' => 'required|unique:materias|max:200|min:3',
+            'codigomateria' => 'required|unique:materias|max:30|min:3',
+            'descripcion' => 'max:200|min:3',
+//            'recuperable' => 'required|in:SI,NO',
+//            'nivelable' => 'required|in:SI,NO'
         ];
     }
+
 }

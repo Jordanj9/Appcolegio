@@ -139,6 +139,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'matricula'], function() {
     Route::resource('naturaleza', 'NaturalezaController');
     Route::get('naturaleza/{id}/delete', 'NaturalezaController@destroy')->name('naturaleza.delete');
     //MATERIAS
-    Route::resource('materias', 'MateriaController');
-    Route::get('materias/{id}/delete', 'MateriaController@destroy')->name('materias.delete');
+    Route::resource('materia', 'MateriaController');
+    Route::get('materia/{id}/delete', 'MateriaController@destroy')->name('materia.delete');
+//    Route::get('materias/{id}/materia', 'MateriaController@materia')->name('materias.materia'); //agregado por johnp
 });

@@ -24,4 +24,8 @@ class Naturaleza extends Model {
             //
     ];
 
+    public function materias() {
+        return $this->hasMany('Materia');
+    }
+
 }

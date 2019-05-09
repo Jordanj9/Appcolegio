@@ -89,8 +89,8 @@ class CiudadController extends Controller {
     public function edit($id) {
         $ciudad = Ciudad::find($id);
         $estados = Estado::all()->pluck('nombre', 'id');
-        return view('admisiones.datos_generales.ciudades.edit')
-                        ->with('location', 'admisiones')
+        return view('matricula.datos_basicos.materia.edit')
+                        ->with('location', 'matricula')
                         ->with('ciudad', $ciudad)
                         ->with('estados', $estados);
     }
@@ -148,7 +148,7 @@ class CiudadController extends Controller {
     /**
      * show all resource from a estado.
      *
-     * @param  int  $id
+     * @param  int  $id codigo del dpto
      * @return \Illuminate\Http\Response
      */
     public function sectores($id) {

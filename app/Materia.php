@@ -24,4 +24,12 @@ class Materia extends Model {
             //
     ];
 
+    public function area() {
+        return $this->belongsTo('App\Area');
+    }
+
+    public function naturaleza() {
+        return $this->belongsTo('App\Naturaleza');
+    }
+
 }
