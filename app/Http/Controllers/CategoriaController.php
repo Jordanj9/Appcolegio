@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests\CategoriaRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Matriculaauditoria;
-class CategoriaController extends Controller
-{
+
+class CategoriaController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-         $categorias = Categoria::all();
+    public function index() {
+        $categorias = Categoria::all();
         return view('matricula.datos_basicos.categoria.list')
                         ->with('location', 'matricula')
                         ->with('categorias', $categorias);
@@ -27,9 +27,8 @@ class CategoriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-         return view('matricula.datos_basicos.categoria.create')
+    public function create() {
+        return view('matricula.datos_basicos.categoria.create')
                         ->with('location', 'matricula');
     }
 
@@ -39,9 +38,8 @@ class CategoriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoriaRequest $request)
-    {
-                $categoria = new Categoria($request->all());
+    public function store(CategoriaRequest $request) {
+        $categoria = new Categoria($request->all());
         foreach ($categoria->attributesToArray() as $key => $value) {
             $categoria->$key = strtoupper($value);
         }
@@ -72,8 +70,7 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function show(Categoria $categoria)
-    {
+    public function show(Categoria $categoria) {
         //
     }
 
@@ -83,13 +80,11 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $categoria=Categoria::find($id);
+    public function edit($id) {
+        $categoria = Categoria::find($id);
         return view('matricula.datos_basicos.categoria.edit')
                         ->with('location', 'matricula')
-                
-                        ->with('c',$categoria);
+                        ->with('c', $categoria);
     }
 
     /**
@@ -99,8 +94,8 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoriaRequest $request, Categoria $categoria)
-    {
+    public function update(CategoriaRequest $request, $id) {
+        $categoria= Categoria::find($id);
         $m = new Categoria($categoria->attributesToArray());
         foreach ($categoria->attributesToArray() as $key => $value) {
             if (isset($request->$key)) {
@@ -138,8 +133,7 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //        if (count($tipodoc->paginas) > 0 || count($grupo->modulos) > 0 || count($grupo->users) > 0) {
 //            flash("El Grupo de usuario <strong>" . $grupo->nombre . "</strong> no pudo ser eliminado porque tiene permisos o usuarios asociados.")->warning();
 //            return redirect()->route('grupousuario.index');
@@ -165,4 +159,5 @@ class CategoriaController extends Controller
         }
 //        }
     }
+
 }

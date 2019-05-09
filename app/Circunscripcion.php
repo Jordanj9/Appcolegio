@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Materia extends Model {
+class Circunscripcion extends Model {
 
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class Materia extends Model {
      * @var array
      */
     protected $fillable = [
-        'id', 'codigomateria', 'nombre', 'descripcion', 'recuperable', 'nivelable', 'area_id', 'naturaleza_id', 'user_change', 'created_at', 'updated_at'
+        'id', 'nombre', 'descripcion', 'user_change', 'created_at', 'updated_at'
     ];
 
     /**

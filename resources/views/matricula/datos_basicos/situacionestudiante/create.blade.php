@@ -15,7 +15,7 @@
 @section('content')
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">CREAR NUEVA SITUACIÓNDEL ESTUDIANTE</h3>
+        <h3 class="box-title">CREAR NUEVA SITUACIÓN DE ESTUDIANTE</h3>
         <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-toggle="modal" data-target="#modal" title="Ayuda">
                 <i class="fa fa-question"></i></button>

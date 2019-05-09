@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Materia extends Model {
-
+class Parametrizardocumentoanexo extends Model
+{
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'id', 'codigomateria', 'nombre', 'descripcion', 'recuperable', 'nivelable', 'area_id', 'naturaleza_id', 'user_change', 'created_at', 'updated_at'
+        'id', 'documentoanexo_id', 'grado_id', 'unidad_id', 'jornada_id', 'user_change', 'created_at', 'updated_at'
     ];
 
     /**
@@ -23,5 +23,4 @@ class Materia extends Model {
     protected $hidden = [
             //
     ];
-
 }

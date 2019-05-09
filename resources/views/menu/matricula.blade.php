@@ -43,18 +43,24 @@
                             @endif
                             @if(session()->exists('PAG_MATRICULA-CATEGORIA-ESTUDIANTE'))
                             <div class="col-md-3">
-                                <a href="{{route('categoria.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> CATEGORÍA</a>
+                                <a href="{{route('categoria.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> CATEGORÍA ESTUDIANTE</a>
                             </div>
                             @endif
+                            @if(session()->exists('PAG_MATRICULA-SITUACION-ESTUDIANTE'))
                             <div class="col-md-3">
                                 <a href="{{route('situacionestudiante.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> SITUACIÓN ESTUDIANTE</a>
                             </div>
-                            <div class="col-md-4">
-                                <a href="{{route('naturaleza.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> NATURALEZA DE LAS MATERIAS</a>
+                            @endif
+                            @if(session()->exists('PAG_MATRICULA-NATURALEZA'))
+                            <div class="col-md-3">
+                                <a href="{{route('naturaleza.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> NATURALEZA DE MATERIAS</a>
                             </div>
+                            @endif
+                            @if(session()->exists('PAG_MATRICULA-MATERIAS'))
                             <div class="col-md-3">
                                 <a href="{{route('materias.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> MATERIAS</a>
                             </div>
+                            @endif
                         </div>
                     </div>
                     <!-- /.tab-pane -->
