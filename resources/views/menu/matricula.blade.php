@@ -61,6 +61,16 @@
                                 <a href="{{route('materia.index')}}" class="btn btn-primary btn-raised btn-block btn-flat"> MATERIAS</a>
                             </div>
                             @endif
+                            @if(session()->exists('PAG_MATRICULA-ITEM-CONTENIDO-MATERIA'))
+                            <div class="col-md-4">
+                                <a class="btn btn-primary btn-raised btn-block btn-flat"> ÍTEM DE CONTENIDO DE MATERIAS</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_MATRICULA-CONTENIDO-DE-LOS-ITEMS'))
+                            <div class="col-md-3">
+                                <a class="btn btn-primary btn-raised btn-block btn-flat"> CONTENIDOS DE MATERIAS</a>
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <!-- /.tab-pane -->
