@@ -20,8 +20,8 @@
                 <i class="fa fa-question"></i></button>
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
                 <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar">
-                <i class="fa fa-times"></i></button>
+            <a href="{{route('materia.index')}}" class="btn btn-box-tool" data-toggle="tooltip" title="Cerrar"  >    
+                <i class="fa fa-times"></i></a>
         </div>
     </div>
     <div class="box-body">
@@ -48,13 +48,13 @@
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Descripción</label>
-                        <input class="form-control" type="text" value="{{$materia->descripcion}}" placeholder="Descripción de la Materia (opcional)" name="descripcion">
+                        <input class="form-control" type="text" placeholder="Descripción de la Materia (opcional)" name="descripcion">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Recuperable ?</label>
-                        <select class="form-control" required="required"  name="recuperable" value="{{$materia->recuperable}}">
+                        <select class="form-control" required="required"  name="recuperable" >
                             <option>-- Seleccione una opción --</option>
                             @if($materia->recuperable=='SI')
                             <option value="SI" selected="true">SI</option>

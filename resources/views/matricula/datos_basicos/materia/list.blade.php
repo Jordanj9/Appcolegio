@@ -22,8 +22,9 @@
                 <i class="fa fa-plus-circle"></i></a>
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
                 <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar">
-                <i class="fa fa-times"></i></button>
+            <!--<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar">-->
+            <a href="{{route('menu.matricula')}}" class="btn btn-box-tool" data-toggle="tooltip" title="Cerrar"  >    
+                <i class="fa fa-times"></i></a>
         </div>
     </div>
     <div class="box-body">
