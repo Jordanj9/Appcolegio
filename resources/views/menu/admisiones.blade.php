@@ -109,6 +109,16 @@
                                 <a href="{{route('situacionanterior.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> Situación Año Anterior</a>
                             </div>
                             @endif
+                            @if(session()->exists('PAG_ADMISIONES-DOCUMENTOS-ANEXOS'))
+                            <div class="col-md-4">
+                                <a class="btn btn-success btn-raised btn-block btn-flat"> Documentos Anexos</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-PARAMETRIZAR-DOCUMENTOS-ANEXOS'))
+                            <div class="col-md-4">
+                                <a class="btn btn-success btn-raised btn-block btn-flat"> Parametrizar Documentos Anexos</a>
+                            </div>
+                            @endif
                         </div>
                     </div>
                     <!-- /.tab-pane -->
@@ -137,6 +147,11 @@
                             @if(session()->exists('PAG_ADMISIONES-CONVOCATORIA'))
                             <div class="col-md-4">
                                 <a href="{{route('convocatoria.index')}}" class="btn btn-success btn-raised btn-block btn-flat"> Convocatoria</a>
+                            </div>
+                            @endif
+                            @if(session()->exists('PAG_ADMISIONES-CIRCUNSCRIPCION'))
+                            <div class="col-md-4">
+                                <a class="btn btn-success btn-raised btn-block btn-flat"> Circunscripción</a>
                             </div>
                             @endif
                         </div>
